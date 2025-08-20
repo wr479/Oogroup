@@ -9,67 +9,140 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
 
-        <section id="advantages" className="border-t border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-6xl px-4 md:px-6 py-14 md:py-20">
-            <Reveal>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-8">Преимущества работы с нами</h2>
-            </Reveal>
-            <div className="space-y-20">
-              {/* Блок 1: МЫ БЫСТРО ОТВЕЧАЕМ */}
-              <Reveal className="grid items-center gap-12 md:grid-cols-2">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-foreground/10 rounded-lg flex items-center justify-center">
-                      <span className="text-lg">⚡</span>
-                    </div>
-                    <div className="text-xs font-medium text-foreground/60 uppercase tracking-wider">МЫ БЫСТРО ОТВЕЧАЕМ</div>
+        {/* Первый блок - Преимущества */}
+        <section className="relative py-24 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-20">
+              <Reveal>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-600 to-slate-900 bg-clip-text text-transparent mb-6">
+                  Преимущества работы с нами
+                </h2>
+                <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                  Мы создаем инновационные решения, которые помогают вашему бизнесу расти и развиваться
+                </p>
+              </Reveal>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Левый блок - Быстрый ответ */}
+              <Reveal className="space-y-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-foreground">Описание</h3>
-                  <p className="text-base text-foreground/70 leading-relaxed max-w-md">
-                    Сплоченная команда профессионалов с современной методологией разработки. Мы обеспечиваем высокое качество и соблюдение сроков выполнения всех проектов.
-                  </p>
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-5xl font-bold text-red-500">12%</span>
-                    <span className="text-sm text-foreground/60">Описание</span>
+                  <div>
+                    <div className="text-sm font-semibold text-red-600 uppercase tracking-wider">МЫ БЫСТРО ОТВЕЧАЕМ</div>
+                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Молниеносная скорость</h3>
                   </div>
                 </div>
-                <div className="relative aspect-[4/3]">
-                  {/* Красная фигура как на скрине */}
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-red-400/30 to-red-600/20 rounded-tl-full transform translate-x-8 -translate-y-8"></div>
-                  {/* Белый прямоугольник с тенью */}
-                  <div className="absolute top-12 right-24 w-24 h-20 bg-white rounded-xl shadow-2xl border border-gray-100"></div>
+                
+                <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Наша команда профессионалов работает с современными технологиями и методологиями, 
+                  обеспечивая высокое качество и соблюдение всех сроков выполнения проектов.
+                </p>
+                
+                <div className="flex items-baseline gap-4">
+                  <span className="text-6xl font-black text-red-500">98%</span>
+                  <span className="text-lg text-slate-500 dark:text-slate-400">клиентов довольны скоростью</span>
+                </div>
+                
+                <div className="flex gap-4">
+                  <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl">
+                    Узнать больше
+                  </Button>
+                  <Button variant="outline" size="lg" className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-3 rounded-xl">
+                    Детали
+                  </Button>
                 </div>
               </Reveal>
 
-              {/* Блок 2: НАЗВАНИЕ */}
-              <Reveal delay={0.1} className="grid items-center gap-12 md:grid-cols-2">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-foreground/10 rounded-lg flex items-center justify-center">
-                      <span className="text-lg">📋</span>
-                    </div>
-                    <div className="text-xs font-medium text-foreground/60 uppercase tracking-wider">НАЗВАНИЕ</div>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-foreground">Описание</h3>
-                  <p className="text-base text-foreground/70 leading-relaxed max-w-md">
-                    Чёткие сроки, прозрачные процессы и высокие стандарты качества. Полный цикл — от проектирования до эксплуатации.
-                  </p>
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-5xl font-bold text-green-500">12%</span>
-                    <span className="text-sm text-foreground/60">Описание</span>
-                  </div>
-                </div>
-                <div className="relative aspect-[4/3]">
-                  {/* Зеленая фигура как на скрине */}
-                  <div className="absolute bottom-0 right-0 w-48 h-48 bg-gradient-to-tr from-green-400/30 to-green-600/20 rounded-bl-full transform translate-x-8 translate-y-8"></div>
-                  {/* Белый прямоугольник с тенью */}
-                  <div className="absolute bottom-12 right-24 w-24 h-20 bg-white rounded-xl shadow-2xl border border-gray-100"></div>
+              {/* Правый блок - Визуальные элементы */}
+              <Reveal delay={0.2} className="relative">
+                <div className="relative aspect-square max-w-lg mx-auto">
+                  {/* Основной градиентный круг */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 via-pink-500/30 to-red-600/20 rounded-full blur-3xl"></div>
+                  
+                  {/* Красная фигура */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-red-500/80 to-pink-600/60 rounded-tl-full transform translate-x-8 -translate-y-8 shadow-2xl"></div>
+                  
+                  {/* Белые карточки */}
+                  <div className="absolute top-16 right-32 w-32 h-24 bg-white rounded-2xl shadow-2xl border border-gray-100 transform rotate-12"></div>
+                  <div className="absolute top-32 right-16 w-24 h-20 bg-white rounded-xl shadow-xl border border-gray-100 transform -rotate-6"></div>
+                  
+                  {/* Дополнительные элементы */}
+                  <div className="absolute bottom-16 left-8 w-20 h-20 bg-gradient-to-br from-blue-400/40 to-cyan-500/40 rounded-full blur-xl"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-2xl"></div>
                 </div>
               </Reveal>
             </div>
           </div>
-                </section>
+        </section>
 
+        {/* Второй блок - Качество */}
+        <section className="relative py-24 bg-gradient-to-bl from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20">
+          <div className="absolute inset-0 bg-dots-pattern opacity-5"></div>
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Левый блок - Визуальные элементы */}
+              <Reveal className="relative order-2 lg:order-1">
+                <div className="relative aspect-square max-w-lg mx-auto">
+                  {/* Основной градиентный круг */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 via-teal-500/30 to-green-600/20 rounded-full blur-3xl"></div>
+                  
+                  {/* Зеленая фигура */}
+                  <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-emerald-500/80 to-teal-600/60 rounded-bl-full transform -translate-x-8 translate-y-8 shadow-2xl"></div>
+                  
+                  {/* Белые карточки */}
+                  <div className="absolute bottom-16 left-32 w-32 h-24 bg-white rounded-2xl shadow-2xl border border-gray-100 transform -rotate-12"></div>
+                  <div className="absolute bottom-32 left-16 w-24 h-20 bg-white rounded-xl shadow-xl border border-gray-100 transform rotate-6"></div>
+                  
+                  {/* Дополнительные элементы */}
+                  <div className="absolute top-16 right-8 w-20 h-20 bg-gradient-to-br from-emerald-400/40 to-teal-500/40 rounded-full blur-xl"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-teal-400/20 to-emerald-400/20 rounded-full blur-2xl"></div>
+                </div>
+              </Reveal>
+
+              {/* Правый блок - Качество */}
+              <Reveal delay={0.2} className="space-y-8 order-1 lg:order-2">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-emerald-600 uppercase tracking-wider">ГАРАНТИЯ КАЧЕСТВА</div>
+                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Высокие стандарты</h3>
+                  </div>
+                </div>
+                
+                <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Мы придерживаемся строгих стандартов качества на всех этапах работы. 
+                  От проектирования до реализации - каждый проект выполняется с максимальным вниманием к деталям.
+                </p>
+                
+                <div className="flex items-baseline gap-4">
+                  <span className="text-6xl font-black text-emerald-500">100%</span>
+                  <span className="text-lg text-slate-500 dark:text-slate-400">гарантия качества</span>
+                </div>
+                
+                <div className="flex gap-4">
+                  <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl">
+                    Начать проект
+                  </Button>
+                  <Button variant="outline" size="lg" className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-3 rounded-xl">
+                    Портфолио
+                  </Button>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Остальные секции остаются без изменений */}
         <section id="services" className="border-t border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 md:px-6 py-14 md:py-20">
             <Reveal>
@@ -91,64 +164,6 @@ export default function Home() {
                   </p>
                 </Reveal>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="border-t border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-6xl px-4 md:px-6 py-14 md:py-20">
-            <div className="space-y-20">
-              {/* Блок 1: МЫ БЫСТРО ОТВЕЧАЕМ */}
-              <Reveal className="grid items-center gap-12 md:grid-cols-2">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-foreground/10 rounded-lg flex items-center justify-center">
-                      <span className="text-lg">⚡</span>
-                    </div>
-                    <div className="text-xs font-medium text-foreground/60 uppercase tracking-wider">МЫ БЫСТРО ОТВЕЧАЕМ</div>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-foreground">Описание</h3>
-                  <p className="text-base text-foreground/70 leading-relaxed max-w-md">
-                    Сплоченная команда профессионалов с современной методологией разработки. Мы обеспечиваем высокое качество и соблюдение сроков выполнения всех проектов.
-                  </p>
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-5xl font-bold text-red-500">12%</span>
-                    <span className="text-sm text-foreground/60">Описание</span>
-                  </div>
-                </div>
-                <div className="relative aspect-[4/3]">
-                  {/* Красная фигура как на скрине */}
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-red-400/30 to-red-600/20 rounded-tl-full transform translate-x-8 -translate-y-8"></div>
-                  {/* Белый прямоугольник с тенью */}
-                  <div className="absolute top-12 right-24 w-24 h-20 bg-white rounded-xl shadow-2xl border border-gray-100"></div>
-                </div>
-              </Reveal>
-
-              {/* Блок 2: НАЗВАНИЕ */}
-              <Reveal delay={0.1} className="grid items-center gap-12 md:grid-cols-2">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-foreground/10 rounded-lg flex items-center justify-center">
-                      <span className="text-lg">📋</span>
-                    </div>
-                    <div className="text-xs font-medium text-foreground/60 uppercase tracking-wider">НАЗВАНИЕ</div>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-foreground">Описание</h3>
-                  <p className="text-base text-foreground/70 leading-relaxed max-w-md">
-                    Чёткие сроки, прозрачные процессы и высокие стандарты качества. Полный цикл — от проектирования до эксплуатации.
-                  </p>
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-5xl font-bold text-green-500">12%</span>
-                    <span className="text-sm text-foreground/60">Описание</span>
-                  </div>
-                </div>
-                <div className="relative aspect-[4/3]">
-                  {/* Зеленая фигура как на скрине */}
-                  <div className="absolute bottom-0 right-0 w-48 h-48 bg-gradient-to-tr from-green-400/30 to-green-600/20 rounded-bl-full transform translate-x-8 translate-y-8"></div>
-                  {/* Белый прямоугольник с тенью */}
-                  <div className="absolute bottom-12 right-24 w-24 h-20 bg-white rounded-xl shadow-2xl border border-gray-100"></div>
-                </div>
-              </Reveal>
             </div>
           </div>
         </section>
