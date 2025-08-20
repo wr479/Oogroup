@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- Stripe-style gradient animations --- */
+@theme inline {
+  --animate-first: moveVertical 12s ease infinite;
+  --animate-second: moveInCircle 8s reverse infinite;
+  --animate-third: moveInCircle 15s linear infinite;
+  --animate-fourth: moveHorizontal 18s ease infinite;
+  --animate-fifth: moveInCircle 10s ease infinite;
+}
+
+/* React Spring animated gradient background */
+.animated-gradient-bg {
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* CSS переменные для цветов градиента */
+:root {
+  --gradientColorZero: #a960ee;
+  --gradientColorOne: #ff333d;
+  --gradientColorTwo: #90e0ff;
+  --gradientColorThree: #ffcb57;
+  --gradientColorZeroTransparent: rgba(169, 96, 238, 0);
+  --gradientColorOneTransparent: rgba(255, 51, 61, 0);
+  --gradientColorTwoTransparent: rgba(144, 224, 255, 0);
+  --gradientColorThreeTransparent: rgba(255, 203, 87, 0);
+}
+
+/* Stripe-style canvas blur */
+.stripe-canvas {
+  filter: blur(60px);
+  mix-blend-mode: normal;
+  opacity: 0.9;
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+
+
+/* Waves overlay */
+.hero-waves { pointer-events: none; mix-blend-mode: soft-light; }
+.hero-waves .wave { position: absolute; inset: 0; width: 100%; height: 60%; }
+.hero-waves .wave-slowest { animation: wave-drift 5.5s ease-in-out infinite alternate; top: 10%; }
+.hero-waves .wave-slow { animation: wave-drift 4s ease-in-out infinite alternate-reverse; top: 14%; }
+.hero-waves .wave-fast { animation: wave-drift 2.5s ease-in-out infinite alternate; top: 18%; }
+
+@keyframes wave-drift {
+  0% { transform: translateX(-2%) translateY(0px) scaleX(1.02); }
+  50% { transform: translateX(1.5%) translateY(4px) scaleX(1.04); }
+  100% { transform: translateX(3%) translateY(-2px) scaleX(1.02); }
+}
+
+/* Advantages big drop background */
+.advantages-drop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(50% 60% at 70% 40%, rgba(124, 58, 237, 0.18), transparent 60%),
+    radial-gradient(60% 70% at 40% 70%, rgba(236, 72, 153, 0.16), transparent 65%),
+    radial-gradient(55% 65% at 60% 60%, rgba(34, 197, 94, 0.14), transparent 60%);
+  filter: blur(30px);
+  border-radius: 60% 40% 50% 50% / 60% 50% 40% 50%;
+  transform: rotate(-8deg) translateY(10px);
+}
+
+/* Slack-like big quarter circle blob behind content */
+.advantages-blob {
+  position: absolute;
+  inset: 0;
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 0;
+  transform: translateX(16%) translateY(-6%);
+  background: radial-gradient(120% 120% at 100% 0%, rgba(220, 38, 38, 0.95), rgba(220, 38, 38, 0.95))
+    no-repeat;
+}
