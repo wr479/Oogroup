@@ -1,12 +1,16 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import PlasmaAnimation from "../ui/gradient";
 
 export function HeroSection() {
 	return (
 		<section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
 			{/* Переливающийся градиентный фон */}
-			<div className="absolute inset-0 bg-gradient-to-br from-red-500 via-red-600 to-pink-600 animate-gradient-shift"></div>
+			
+			<PlasmaAnimation diagonalOverlay overlayCorner='br' overlayColor="#ffffff" overlayOpacity={1} />
+
+			{/* <div className="absolute inset-0 bg-gradient-to-br from-red-500 via-red-600 to-pink-600 animate-gradient-shift"></div> */}
 			
 			{/* Дополнительные фоновые элементы */}
 			<div className="absolute inset-0 pointer-events-none">

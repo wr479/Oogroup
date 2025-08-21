@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import Image from "next/image";
 import { HeroSection } from "@/components/site/hero-section";
+import PlasmaAnimation from "@/components/ui/gradient";
 
 export default function Home() {
   return (
