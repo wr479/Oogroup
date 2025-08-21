@@ -142,42 +142,64 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Остальные секции остаются без изменений */}
-        <section id="services" className="border-t border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-6xl px-4 md:px-6 py-14 md:py-20">
-            <Reveal>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-8">Услуги</h2>
-            </Reveal>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                { title: "Проектирование", Icon: "📐", description: "Архитектурные и инженерные решения любой сложности" },
-                { title: "Строительство", Icon: "🏗️", description: "Полный цикл генерального подряда и технадзора" },
-                { title: "Консалтинг", Icon: "💼", description: "Снижение рисков и оптимизация бюджета проекта" },
-              ].map((item, i) => (
-                <Reveal key={item.title} delay={0.05 * i} className="group rounded-lg border border-black/10 dark:border-white/10 p-6 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-300 hover:border-foreground/20">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-foreground/10 group-hover:bg-foreground/20 transition-colors">
-                    <span className="text-2xl">{item.Icon}</span>
-                  </div>
-                  <h3 className="font-medium mb-2">{item.title}</h3>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
-                    {item.description}
-                  </p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
+        
 
-        <section id="contacts" className="border-t border-black/10 dark:border-white/10">
+        <section id="contacts" className="border-t border-black/10 dark:border-white/10 bg-[rgba(10, 37, 64, 0.05)] w-full" >
           <div className="mx-auto max-w-6xl px-4 md:px-6 py-14 md:py-20">
-            <Reveal className="rounded-xl border border-black/10 dark:border-white/10 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div>
-                <div className="text-xl md:text-2xl font-semibold">Готовы начать?</div>
-                <p className="text-foreground/70">Свяжитесь с нами и получите индивидуальное предложение.</p>
+            <Reveal className="rounded-2xl border-2 border-blue-200/60 dark:border-white/10 bg-white dark:bg-slate-900 p-6 sm:p-8 md:p-10 shadow-sm">
+              <div className="max-w-4xl mx-auto text-center mb-8 md:mb-10">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Хотите с нами работать?</h2>
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Ojok Group — это больше чем работа. Это сообщество профессионалов, где ценят ваше время, комфорт и стремление к росту.
+                  Мы создали среду, где удалённая работа становится преимуществом, а не ограничением. Присоединяйтесь к нам и убедитесь сами!
+                </p>
               </div>
-              <Button size="lg">Связаться</Button>
+
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-8 md:mb-10">
+                <div>
+                  <div className="text-center md:text-left text-xs font-semibold tracking-wider uppercase text-slate-700 dark:text-slate-200 mb-3">МЫ ПРЕДЛАГАЕМ</div>
+                  <ul className="space-y-3 md:space-y-4">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="text-slate-800 dark:text-slate-200">ОФИЦИАЛЬНОЕ ТРУДОУСТРОЙСТВО С ПЕРВОГО ДНЯ</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="text-slate-800 dark:text-slate-200">100% УДАЛЁННЫЙ ФОРМАТ ИЗ ЛЮБОГО ГОРОДА РОССИИ</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="text-slate-800 dark:text-slate-200">ЗАРПЛАТА 35 000 — 40 000₽ С ПЕРЕСМОТРОМ КАЖДЫЕ 3 МЕСЯЦА</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <div className="text-center md:text-left text-xs font-semibold tracking-wider uppercase text-slate-700 dark:text-slate-200 mb-3">КОГО МЫ ИЩЕМ</div>
+                  <ul className="space-y-3 md:space-y-4">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="text-slate-800 dark:text-slate-200">ОПЫТ В СЕРВИСЕ ИЛИ ПРОДАЖАХ</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="text-slate-800 dark:text-slate-200">ГОТОВНОСТЬ ПОМОГАТЬ ЛЮДЯМ И РЕШАТЬ ИХ ЗАДАЧИ</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="text-slate-800 dark:text-slate-200">КОМАНДНЫХ ИГРОКОВ С АКТИВНОЙ ЖИЗНЕННОЙ ПОЗИЦИЕЙ</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex justify-center">
+                <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl">
+                  Посмотреть вакансии
+                </Button>
+              </div>
             </Reveal>
-        </div>
+          </div>
         </section>
       </main>
     </div>

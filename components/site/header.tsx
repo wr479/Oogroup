@@ -125,17 +125,11 @@ export function Header() {
             <Link href="/" className="block px-3 py-3 rounded-md hover:bg-foreground/5" onClick={() => setIsMenuOpen(false)}>
               Главная
             </Link>
-            <Link href="/#services" className="block px-3 py-3 rounded-md hover:bg-foreground/5" onClick={() => setIsMenuOpen(false)}>
-              Услуги
-            </Link>
             <Link href="/about" className="block px-3 py-3 rounded-md hover:bg-foreground/5" onClick={() => setIsMenuOpen(false)}>
               О компании
             </Link>
             <Link href="/vacancies" className="block px-3 py-3 rounded-md hover:bg-foreground/5" onClick={() => setIsMenuOpen(false)}>
               Вакансии
-            </Link>
-            <Link href="/#contacts" className="block px-3 py-3 rounded-md hover:bg-foreground/5" onClick={() => setIsMenuOpen(false)}>
-              Контакты
             </Link>
           </nav>
           <div className="px-4 border-t border-black/10 dark:border-white/10" style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0) + 1rem)" }}>
