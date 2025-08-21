@@ -44,8 +44,7 @@ export function Header() {
             <span className="text-white font-bold text-lg">Ojok</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-lg text-slate-900 dark:text-white">Ojok</span>
-            <span className="text-sm text-slate-600 dark:text-slate-400">Удаленный колл-центр</span>
+            <span className="font-bold text-lg text-slate-900 dark:text-white">Удаленный колл-центр</span>
           </div>
         </Link>
 
@@ -54,18 +53,14 @@ export function Header() {
           <Link href="/" className="text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 font-medium">
             Главная
           </Link>
-          <Link href="/#services" className="text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 font-medium">
-            Услуги
-          </Link>
+          
           <Link href="/about" className="text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 font-medium">
             О компании
           </Link>
           <Link href="/vacancies" className="text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 font-medium">
             Вакансии
           </Link>
-          <Link href="/#contacts" className="text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 font-medium">
-            Контакты
-          </Link>
+         
         </nav>
 
         {/* Контактная информация и кнопка */}
