@@ -16,8 +16,8 @@ export default function AboutPage() {
           secondaryButtonText="Посмотреть вакансии"
           primaryButtonHref="#contact"
           secondaryButtonHref="/vacancies"
-          heroImage="/hero-main.png"
-          mobileImage="/hero-main-mobile.png"
+          heroImage="/about/1.png"
+          mobileImage="/about/2.png"
           heroImageAlt="Фоновое изображение"
           mobileImageAlt="Мобильное приложение"
         />
