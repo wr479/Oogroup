@@ -30,7 +30,7 @@ export function HeroSection({
 }: HeroSectionProps) {
 	return (
 		<section 
-			className="relative w-full min-h-[70vh] sm:min-h-[75vh] md:min-h-[85vh] lg:min-h-screen flex items-center justify-center overflow-hidden"
+			className="relative w-full min-h-[70vh] sm:min-h-[75vh] md:min-h-[8	0vh] flex items-center justify-center overflow-hidden"
 		>
 			{/* Переливающийся градиентный фон */}
 			

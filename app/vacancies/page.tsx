@@ -23,61 +23,84 @@ export default function VacanciesPage() {
         />
 
         {/* Секция "Карьера в Ojok: возможности и условия" */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-slate-900 mb-6">
                 Карьера в Ojok: возможности и условия
               </h2>
-              <p className="text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-slate-700 max-w-4xl mx-auto leading-relaxed">
                 Присоединяйтесь к профессиональной команде Ojok и растите вместе с лидером в сфере аутсорсинга продаж. 
-                У нас есть интересные вакансии, комфортные условия работы и поддержка на каждом этапе.
+                У нас есть интересные вакансии, комфортные условия работы и поддержка на каждом этапе вашего развития.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Левая колонка - ВАКАНСИИ */}
-              <div className="text-center p-8 bg-slate-50 rounded-2xl hover:shadow-lg transition-shadow">
-                <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z" />
-                  </svg>
+            {/* Основные преимущества */}
+            <div className="grid lg:grid-cols-2 gap-12 mb-16">
+              {/* Левая колонка - Изображение */}
+              <div className="relative">
+                <Image
+                  src="/laptop/1.png"
+                  alt="Команда Ojok за работой"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-2xl shadow-2xl"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-red-600 text-white p-4 rounded-xl shadow-lg">
+                  <div className="text-2xl font-bold">200+</div>
+                  <div className="text-sm">Сотрудников</div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">ВАКАНСИИ</h3>
-                <p className="text-slate-700 leading-relaxed">
-                  Открытые позиции в продажах, управлении проектами, IT и поддержке клиентов. 
-                  Если вы ориентированы на результат и хотите быть частью профессиональной команды — 
-                  посмотрите наши текущие вакансии.
-                </p>
               </div>
 
-              {/* Центральная колонка - УСЛОВИЯ И БОНУСЫ */}
-              <div className="text-center p-8 bg-slate-50 rounded-2xl hover:shadow-lg transition-shadow">
-                <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
+              {/* Правая колонка - Ключевые преимущества */}
+              <div className="space-y-8">
+                <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-red-500">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">💰 Конкурентная зарплата</h3>
+                  <p className="text-slate-700">
+                    От 35 000 до 40 000 ₽ на руки + премии и бонусы за достижения. 
+                    Регулярные повышения и система грейдов.
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">УСЛОВИЯ И БОНУСЫ</h3>
-                <p className="text-slate-700 leading-relaxed">
-                  Конкурентная зарплата, гибкий график, удалённая работа, комфортные условия. 
-                  Бонусы за достижения и участие в корпоративных программах развития.
-                </p>
-              </div>
 
-              {/* Правая колонка - КАК ПОПАСТЬ В КОМАНДУ */}
-              <div className="text-center p-8 bg-slate-50 rounded-2xl hover:shadow-lg transition-shadow">
-                <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                  </svg>
+                <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">🏠 Удаленная работа</h3>
+                  <p className="text-slate-700">
+                    Работайте из любой точки России. Гибкий график от 6 часов в день. 
+                    Никаких пробок и поездок в офис.
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">КАК ПОПАСТЬ В КОМАНДУ</h3>
-                <p className="text-slate-700 leading-relaxed">
-                  Простая подача заявки на сайте или отправка резюме на email. 
-                  Далее — собеседование и тестовое задание. Станьте частью Ojok и 
-                  начните карьеру с перспективами и поддержкой.
-                </p>
+
+                <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-green-500">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">📚 Обучение и развитие</h3>
+                  <p className="text-slate-700">
+                    Бесплатное обучение, наставничество, карьерный рост. 
+                    Развитие soft и hard skills под руководством экспертов.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-16 bg-gradient-to-r from-red-50 to-blue-50 rounded-2xl p-8 text-center">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Почему выбирают Ojok?
+              </h3>
+              <div className="grid md:grid-cols-4 gap-6 mt-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-red-600 mb-2">12+</div>
+                  <div className="text-slate-700">Лет на рынке</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">15</div>
+                  <div className="text-slate-700">Городов России</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-green-600 mb-2">1000+</div>
+                  <div className="text-slate-700">Проектов</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-purple-600 mb-2">95%</div>
+                  <div className="text-slate-700">Довольных клиентов</div>
+                </div>
               </div>
             </div>
           </div>
@@ -255,94 +278,87 @@ export default function VacanciesPage() {
             </div>
 
             <div className="bg-slate-50 rounded-2xl p-8 shadow-xl">
-              <form className="space-y-6">
+              <form id="contactForm" className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      ФИО
+                      ФИО *
                     </label>
                     <input
+                      name="name"
                       type="text"
+                      required
                       placeholder="Иванов Иван Иванович"
                       className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     />
                   </div>
                   
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Номер телефона
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="+7"
-                      className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    />
-                  </div>
+                                     <div>
+                     <label className="block text-sm font-medium text-slate-700 mb-2">
+                       Email *
+                     </label>
+                     <input
+                       id="email"
+                       name="email"
+                       type="email"
+                       required
+                       placeholder="ivanov@example.com"
+                       className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                     />
+                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Telegram
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="@username"
-                      className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    />
-                  </div>
+                                     <div>
+                     <label className="block text-sm font-medium text-slate-700 mb-2">
+                       Номер телефона *
+                     </label>
+                     <input
+                       id="phone"
+                       name="phone"
+                       type="tel"
+                       required
+                       placeholder="+7 (999) 123-45-67"
+                       className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                     />
+                   </div>
                   
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Гражданство
-                    </label>
-                    <select className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                      <option>Россия</option>
-                      <option>Другое</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Опыт работы
                     </label>
-                    <select className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                      <option>Без опыта</option>
-                      <option>До 1 года</option>
-                      <option>1-3 года</option>
-                      <option>Более 3 лет</option>
-                    </select>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Резюме
-                    </label>
-                    <button
-                      type="button"
-                      className="w-full px-4 py-3 border-2 border-dashed border-slate-300 rounded-xl text-slate-500 hover:border-red-500 hover:text-red-500 transition-colors"
+                    <select 
+                      name="experience"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     >
-                      Прикрепить файл
-                    </button>
+                      <option value="">Выберите опыт</option>
+                      <option value="Без опыта">Без опыта</option>
+                      <option value="До 1 года">До 1 года</option>
+                      <option value="1-3 года">1-3 года</option>
+                      <option value="Более 3 лет">Более 3 лет</option>
+                    </select>
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Комментарий
+                    Сообщение
                   </label>
                   <textarea
+                    name="message"
                     rows={4}
-                    placeholder="Оставьте комментарий."
+                    placeholder="Расскажите о себе, почему хотите работать в Ojok..."
                     className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent resize-none"
                   />
                 </div>
 
+                {/* Статус отправки */}
+                <div id="status" className="hidden p-4 rounded-xl text-center font-medium"></div>
+
                 <Button 
+                  id="submitBtn"
                   type="submit" 
-                  className="w-full bg-red-600 hover:bg-red-700 text-white py-4 text-lg font-semibold rounded-xl"
+                  className="w-full bg-red-600 hover:bg-red-700 text-white py-4 text-lg font-semibold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Откликнуться
                 </Button>
@@ -350,6 +366,198 @@ export default function VacanciesPage() {
             </div>
           </div>
         </section>
+
+        {/* Подключение axios и скрипт формы */}
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            const webhookUrl = 'https://core.emfy.com/widgets/webhooks/?module=site_integration&amo_account_id=31802054&hook_id=MTc1NTg1MzQ5Nzg3NTExMTYyNDEw';
+            
+            // Маска для телефона
+            function initPhoneMask() {
+                const phoneInput = document.getElementById('phone');
+                if (!phoneInput) return;
+                
+                let cursorPosition = 0;
+                
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\\D/g, '');
+                    let formattedValue = '';
+                    
+                    if (value.length > 0) {
+                        if (value.length <= 1) {
+                            formattedValue = '+7 (' + value;
+                        } else if (value.length <= 4) {
+                            formattedValue = '+7 (' + value.substring(0, 3) + ') ' + value.substring(3);
+                        } else if (value.length <= 7) {
+                            formattedValue = '+7 (' + value.substring(0, 3) + ') ' + value.substring(3, 6) + '-' + value.substring(6);
+                        } else if (value.length <= 9) {
+                            formattedValue = '+7 (' + value.substring(0, 3) + ') ' + value.substring(3, 6) + '-' + value.substring(6, 8) + '-' + value.substring(8);
+                        } else {
+                            formattedValue = '+7 (' + value.substring(0, 3) + ') ' + value.substring(3, 6) + '-' + value.substring(6, 8) + '-' + value.substring(8, 10);
+                        }
+                    }
+                    
+                    e.target.value = formattedValue;
+                    
+                    // Сохраняем позицию курсора
+                    if (cursorPosition < formattedValue.length) {
+                        e.target.setSelectionRange(cursorPosition, cursorPosition);
+                    }
+                });
+                
+                phoneInput.addEventListener('keydown', function(e) {
+                    cursorPosition = e.target.selectionStart;
+                });
+                
+                phoneInput.addEventListener('focus', function(e) {
+                    if (!e.target.value) {
+                        e.target.value = '+7 (';
+                    }
+                });
+                
+                phoneInput.addEventListener('blur', function(e) {
+                    if (e.target.value === '+7 (') {
+                        e.target.value = '';
+                    }
+                });
+            }
+            
+            // Валидация email
+            function initEmailValidation() {
+                const emailInput = document.getElementById('email');
+                if (!emailInput) return;
+                
+                emailInput.addEventListener('blur', function(e) {
+                    const email = e.target.value;
+                    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+                    
+                    if (email && !emailRegex.test(email)) {
+                        e.target.classList.add('border-red-500', 'focus:border-red-500');
+                        e.target.classList.remove('border-slate-300', 'focus:border-red-500');
+                        
+                        // Показываем ошибку
+                        let errorDiv = e.target.parentNode.querySelector('.email-error');
+                        if (!errorDiv) {
+                            errorDiv = document.createElement('div');
+                            errorDiv.className = 'email-error text-red-500 text-sm mt-1';
+                            e.target.parentNode.appendChild(errorDiv);
+                        }
+                        errorDiv.textContent = 'Введите корректный email адрес';
+                    } else {
+                        e.target.classList.remove('border-red-500');
+                        e.target.classList.add('border-slate-300');
+                        
+                        // Убираем ошибку
+                        const errorDiv = e.target.parentNode.querySelector('.email-error');
+                        if (errorDiv) {
+                            errorDiv.remove();
+                        }
+                    }
+                });
+                
+                emailInput.addEventListener('input', function(e) {
+                    if (e.target.classList.contains('border-red-500')) {
+                        e.target.classList.remove('border-red-500');
+                        e.target.classList.add('border-slate-300');
+                        
+                        const errorDiv = e.target.parentNode.querySelector('.email-error');
+                        if (errorDiv) {
+                            errorDiv.remove();
+                        }
+                    }
+                });
+            }
+            
+            // Инициализация масок при загрузке страницы
+            document.addEventListener('DOMContentLoaded', function() {
+                initPhoneMask();
+                initEmailValidation();
+            });
+            
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = document.getElementById('submitBtn');
+                const statusDiv = document.getElementById('status');
+                
+                // Получаем данные из формы
+                const formData = new FormData(this);
+                const dataFromForm = {
+                    'name': formData.get('name'),
+                    'email': formData.get('email'),
+                    'phone': formData.get('phone'),
+                    'message': formData.get('message') || 'Опыт: ' + (formData.get('experience') || 'Не указан')
+                };
+                
+                // Показываем статус загрузки
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+                statusDiv.style.display = 'block';
+                statusDiv.className = 'status loading p-4 rounded-xl text-center font-medium bg-blue-50 text-blue-700';
+                statusDiv.textContent = 'Отправка данных...';
+                
+                // Создаем URLSearchParams для отправки
+                const postData = new URLSearchParams();
+                for (const key in dataFromForm) {
+                    if (Object.hasOwnProperty.call(dataFromForm, key)) {
+                        postData.append(key, dataFromForm[key]);
+                    }
+                }
+                
+                // Отправляем запрос через axios
+                axios.post(webhookUrl, postData.toString(), {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    timeout: 30000 // 30 секунд таймаут
+                })
+                .then(response => {
+                    console.log('Webhook response (success):', response.data);
+                    
+                    // Показываем успешный статус
+                    statusDiv.className = 'status success p-4 rounded-xl text-center font-medium bg-green-50 text-green-700';
+                    statusDiv.textContent = 'Данные успешно отправлены! Мы свяжемся с вами в ближайшее время.';
+                    
+                    // Очищаем форму
+                    document.getElementById('contactForm').reset();
+                })
+                .catch(error => {
+                    console.error('Error sending data to webhook:', error);
+                    
+                    let errorMessage = 'Ошибка при отправке данных';
+                    
+                    if (error.response) {
+                        // Сервер ответил с ошибкой
+                        errorMessage += \`: \${error.response.status} \${error.response.statusText}\`;
+                        if (error.response.data) {
+                            console.log('Response data:', error.response.data);
+                        }
+                    } else if (error.request) {
+                        // Запрос был отправлен, но ответ не получен
+                        errorMessage += ': Нет ответа от сервера';
+                    } else {
+                        // Ошибка при настройке запроса
+                        errorMessage += \`: \${error.message}\`;
+                    }
+                    
+                    // Показываем ошибку
+                    statusDiv.className = 'status error p-4 rounded-xl text-center font-medium bg-red-50 text-red-700';
+                    statusDiv.textContent = errorMessage;
+                })
+                .finally(() => {
+                    // Восстанавливаем кнопку
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Откликнуться';
+                    
+                    // Скрываем статус через 5 секунд
+                    setTimeout(() => {
+                        statusDiv.style.display = 'none';
+                    }, 5000);
+                });
+            });
+          `
+        }} />
       </main>
     </div>
   );

@@ -4,6 +4,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { HeroSection } from "@/components/site/hero-section";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Shield, Zap, Users, Settings } from "lucide-react";
 
 export default function Home() {
   const [activeAdvantageIndex, setActiveAdvantageIndex] = useState(0);
@@ -11,27 +12,31 @@ export default function Home() {
   const [imageSlide, setImageSlide] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Массив преимуществ с изображениями
+  // Массив преимуществ с изображениями и цветами для фоновых иллюстраций
   const advantages = [
     {
       id: "reliability",
       image: "/laptop/1.png",
-      title: "Финансы и стабильность"
+      title: "Финансы и стабильность",
+      bgColor: "rgba(124, 58, 237, 0.18)" // Фиолетовый
     },
     {
       id: "freedom",
       image: "/laptop/2.png", 
-      title: "Свобода выбора и комфорт"
+      title: "Свобода выбора и комфорт",
+      bgColor: "rgba(34, 197, 94, 0.16)" // Зеленый
     },
     {
       id: "development",
       image: "/laptop/3.png",
-      title: "Растите вместе с нами"
+      title: "Растите вместе с нами",
+      bgColor: "rgba(59, 130, 246, 0.18)" // Синий
     },
     {
       id: "technology",
       image: "/laptop/4.png",
-      title: "Всё понятно и удобно"
+      title: "Всё понятно и удобно",
+      bgColor: "rgba(236, 72, 153, 0.16)" // Розовый
     }
   ];
 
@@ -154,23 +159,23 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-left">
               <Reveal>
-                <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight text-slate-900 dark:text-white mb-8">Преимущества работы с нами</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight text-slate-900 dark:text-white mb-8 font-serif">Преимущества работы с нами</h2>
               </Reveal>
               <div className="flex justify-start items-center gap-4 md:gap-4 flex-wrap">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-slate-300 "></div>
+                  <Shield className="w-4 h-4 text-slate-400" />
                   <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">НАДЕЖНОСТЬ</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-slate-300 "></div>
+                  <Zap className="w-4 h-4 text-slate-400" />
                   <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">ФОРМАТ И СВОБОДА</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-slate-300 "></div>
+                  <Users className="w-4 h-4 text-slate-400" />
                   <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">РАЗВИТИЕ И ПОДДЕРЖКА</span>
                 </div>  
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-slate-300 "></div>
+                  <Settings className="w-4 h-4 text-slate-400" />
                   <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">ТЕХНОЛОГИИ И ПРОСТОТА</span>
                 </div>
               </div>
@@ -179,11 +184,11 @@ export default function Home() {
         </section>
 
         {/* Секция преимуществ с sticky изображением */}
-        <div className="relative  flex flex-row-reverse min-h-screen mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" style={{ '--sticky-top': '8rem' } as React.CSSProperties}>
+        <div className="relative flex flex-row-reverse min-h-screen mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" style={{ '--sticky-top': '8rem' } as React.CSSProperties}>
           {/* Sticky изображение справа */}
           <div className="lg:block hidden relative lg:right-0 lg:top-0 lg:w-1/2 lg:pl-8">
             <div 
-              className="sticky w-full max-w-md mx-auto"
+              className="sticky w-full max-w-lg mx-auto flex items-center justify-center"
               style={{ 
                 position: 'sticky',
                 top: 'var(--sticky-top)',
@@ -192,12 +197,27 @@ export default function Home() {
               }}
             >
               <div className="relative bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 rounded-xl shadow-2xl overflow-hidden border border-black/5 backdrop-blur-sm">
+                {/* Фоновая иллюстрация в стиле Slack */}
+                <div 
+                  className="absolute inset-0 z-0"
+                  style={{
+                    background: `
+                      radial-gradient(50% 60% at 70% 40%, ${advantages[activeAdvantageIndex].bgColor}, transparent 60%),
+                      radial-gradient(60% 70% at 40% 70%, ${advantages[activeAdvantageIndex].bgColor}, transparent 65%),
+                      radial-gradient(55% 65% at 60% 60%, ${advantages[activeAdvantageIndex].bgColor}, transparent 60%)
+                    `,
+                    filter: 'blur(30px)',
+                    borderRadius: '60% 40% 50% 50% / 60% 50% 40% 50%',
+                    transform: 'rotate(-8deg) translateY(10px)'
+                  }}
+                />
+                
                 <Image
                   src={advantages[activeAdvantageIndex].image}
                   alt={advantages[activeAdvantageIndex].title}
-                  width={720}
-                  height={480}
-                  className="w-full h-auto transition-all duration-500 ease-out"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto transition-all duration-500 ease-out relative z-10"
                   style={{ 
                     opacity: imageOpacity,
                     transform: `translateY(${imageSlide}px)`,
@@ -205,22 +225,8 @@ export default function Home() {
                   priority
                 />
                 
-                {/* Индикатор активного преимущества */}
-                <div className="absolute bottom-4 left-4 flex gap-3">
-                  {advantages.map((_, index) => (
-                    <div
-                      key={index}
-                      className={`w-3 h-3 rounded-full transition-all duration-700 ease-out cursor-pointer ${
-                        index === activeAdvantageIndex 
-                          ? 'bg-gradient-to-r from-red-500 to-red-600 scale-125 shadow-lg shadow-red-500/50 ring-2 ring-red-300' 
-                          : 'bg-white/60 hover:bg-white/80 hover:scale-110'
-                      }`}
-                    />
-                  ))}
-                </div>
-                
                 {/* Красивая рамка с градиентом */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none z-20" />
               </div>
             </div>
           </div>
@@ -230,10 +236,10 @@ export default function Home() {
             {/* Преимущества – 1 */}
             <section data-advantage-section="reliability" className="relative py-12 md:py-16">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <Reveal className="space-y-3 md:space-y-4">
-                  <div className="text-[11px] md:text-xs font-semibold tracking-[.15em] uppercase text-slate-500">НАДЕЖНОСТЬ</div>
-                  <h3 className="text-[22px] sm:text-2xl md:text-[28px] font-bold leading-snug text-slate-900 dark:text-white">Финансы и стабильность</h3>
-                  <p className="text-[14px] md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                <Reveal className="space-y-4 md:space-y-5">
+                  <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">НАДЕЖНОСТЬ</div>
+                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white font-serif">Финансы и стабильность</h3>
+                  <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                     Финансовая стабильность — это фундамент. Мы гарантируем официальное оформление,
                     своевременные выплаты и прозрачные условия. У нас регулярно проходят пересмотры дохода —
                     стабильный доход уже в первый месяц работы.
@@ -249,10 +255,10 @@ export default function Home() {
             {/* Преимущества – 2 */}
             <section data-advantage-section="freedom" className="relative py-12 md:py-16">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <Reveal className="space-y-3 md:space-y-4">
-                  <div className="text-[11px] md:text-xs font-semibold tracking-[.15em] uppercase text-slate-500">ФОРМАТ И СВОБОДА</div>
-                  <h3 className="text-[22px] sm:text-2xl md:text-[28px] font-bold leading-snug text-slate-900 dark:text-white">Свобода выбора и комфорт</h3>
-                  <p className="text-[14px] md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                <Reveal className="space-y-4 md:space-y-5">
+                  <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">ФОРМАТ И СВОБОДА</div>
+                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white font-serif">Свобода выбора и комфорт</h3>
+                  <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                     Работайте из офиса, дома или любимого кафе — мы за свободу выбора и заботимся о вашем комфорте.
                     Гибкий график и поддержка наставников помогают сочетать работу с учёбой или личными делами.
                   </p>
@@ -267,10 +273,10 @@ export default function Home() {
             {/* Преимущества – 3 */}
             <section data-advantage-section="development" className="relative py-12 md:py-16">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <Reveal className="space-y-3 md:space-y-4">
-                  <div className="text-[11px] md:text-xs font-semibold tracking-[.15em] uppercase text-slate-500">РАЗВИТИЕ И ПОДДЕРЖКА</div>
-                  <h3 className="text-[22px] sm:text-2xl md:text-[28px] font-bold leading-snug text-slate-900 dark:text-white">Растите вместе с нами</h3>
-                  <p className="text-[14px] md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                <Reveal className="space-y-4 md:space-y-5">
+                  <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">РАЗВИТИЕ И ПОДДЕРЖКА</div>
+                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white font-serif">Растите вместе с нами</h3>
+                  <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                     Бесплатное обучение, наставники и понятный карьерный рост. За 3 месяца можно вырасти
                     до позиции наставника, а дальше — в руководителя направления.
                   </p>
@@ -285,10 +291,10 @@ export default function Home() {
             {/* Преимущества – 4 */}
             <section data-advantage-section="technology" className="relative py-12 md:py-16">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <Reveal className="space-y-3 md:space-y-4">
-                  <div className="text-[11px] md:text-xs font-semibold tracking-[.15em] uppercase text-slate-500">ТЕХНОЛОГИИ И ПРОСТОТА</div>
-                  <h3 className="text-[22px] sm:text-2xl md:text-[28px] font-bold leading-snug text-slate-900 dark:text-white">Всё понятно и удобно</h3>
-                  <p className="text-[14px] md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                <Reveal className="space-y-4 md:space-y-5">
+                  <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">ТЕХНОЛОГИИ И ПРОСТОТА</div>
+                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white font-serif">Всё понятно и удобно</h3>
+                  <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                     Мы используем современные инструменты и надёжные программы. Поддержка 24/7,
                     быстрый онбординг и понятные инструкции — чтобы вы уверенно чувствовали себя в работе.
                   </p>
@@ -319,15 +325,15 @@ export default function Home() {
                   <div className="text-center md:text-left text-xs font-semibold tracking-wider uppercase text-slate-700 dark:text-slate-200 mb-3">МЫ ПРЕДЛАГАЕМ</div>
                   <ul className="space-y-3 md:space-y-4">
                     <li className="flex items-start gap-3">
-                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
                       <span className="text-slate-800 dark:text-slate-200">ОФИЦИАЛЬНОЕ ТРУДОУСТРОЙСТВО С ПЕРВОГО ДНЯ</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
                       <span className="text-slate-800 dark:text-slate-200">100% УДАЛЁННЫЙ ФОРМАТ ИЗ ЛЮБОГО ГОРОДА РОССИИ</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
                       <span className="text-slate-800 dark:text-slate-200">ЗАРПЛАТА 35 000 — 40 000₽ С ПЕРЕСМОТРОМ КАЖДЫЕ 3 МЕСЯЦА</span>
                     </li>
                   </ul>
@@ -337,15 +343,15 @@ export default function Home() {
                   <div className="text-center md:text-left text-xs font-semibold tracking-wider uppercase text-slate-700 dark:text-slate-200 mb-3">КОГО МЫ ИЩЕМ</div>
                   <ul className="space-y-3 md:space-y-4">
                     <li className="flex items-start gap-3">
-                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
                       <span className="text-slate-800 dark:text-slate-200">ОПЫТ В СЕРВИСЕ ИЛИ ПРОДАЖАХ</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
                       <span className="text-slate-800 dark:text-slate-200">ГОТОВНОСТЬ ПОМОГАТЬ ЛЮДЯМ И РЕШАТЬ ИХ ЗАДАЧИ</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="mt-1 w-4 h-4 rounded-sm border-2 border-slate-300 bg-slate-100"></span>
+                      <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
                       <span className="text-slate-800 dark:text-slate-200">КОМАНДНЫХ ИГРОКОВ С АКТИВНОЙ ЖИЗНЕННОЙ ПОЗИЦИЕЙ</span>
                     </li>
                   </ul>
