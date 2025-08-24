@@ -130,9 +130,7 @@ export default function Home() {
           secondaryButtonText="Посмотреть вакансии"
           primaryButtonHref="#contact"
           secondaryButtonHref="/vacancies"
-          heroImage="/hero-main.png"
-          mobileImage="/hero-main-mobile.png"
-          heroImageAlt="Фоновое изображение"
+          mobileImage="/hero/1.png"
           mobileImageAlt="Мобильное приложение"
         />
         
@@ -155,27 +153,27 @@ export default function Home() {
         </section>
 
         {/* Заголовок блока преимуществ */}
-        <section className="py-6">
+        <section className="py-12 md:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-left">
               <Reveal>
-                <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight text-slate-900 dark:text-white mb-8 font-serif">Преимущества работы с нами</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight text-slate-900 dark:text-white mb-10">Преимущества работы с нами</h2>
               </Reveal>
-              <div className="flex justify-start items-center gap-4 md:gap-4 flex-wrap">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-slate-400" />
+              <div className="flex justify-start items-center gap-6 md:gap-8 flex-wrap">
+                <div className="flex items-center gap-3">
+                  <Shield className="w-5 h-5 text-slate-400" />
                   <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">НАДЕЖНОСТЬ</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-slate-400" />
+                <div className="flex items-center gap-3">
+                  <Zap className="w-5 h-5 text-slate-400" />
                   <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">ФОРМАТ И СВОБОДА</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-slate-400" />
+                <div className="flex items-center gap-3">
+                  <Users className="w-5 h-5 text-slate-400" />
                   <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">РАЗВИТИЕ И ПОДДЕРЖКА</span>
                 </div>  
-                <div className="flex items-center gap-2">
-                  <Settings className="w-4 h-4 text-slate-400" />
+                <div className="flex items-center gap-3">
+                  <Settings className="w-5 h-5 text-slate-400" />
                   <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">ТЕХНОЛОГИИ И ПРОСТОТА</span>
                 </div>
               </div>
@@ -188,7 +186,7 @@ export default function Home() {
           {/* Sticky изображение справа */}
           <div className="lg:block hidden relative lg:right-0 lg:top-0 lg:w-1/2 lg:pl-8">
             <div 
-              className="sticky w-full max-w-lg mx-auto flex items-center justify-center"
+              className="sticky w-full   flex items-center justify-center"
               style={{ 
                 position: 'sticky',
                 top: 'var(--sticky-top)',
@@ -196,7 +194,7 @@ export default function Home() {
                 zIndex: 10
               }}
             >
-              <div className="relative bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 rounded-xl shadow-2xl overflow-hidden border border-black/5 backdrop-blur-sm">
+              <div className="relative rounded-xl shadow-2xl overflow-hidden border border-black/5 backdrop-blur-sm">
                 {/* Фоновая иллюстрация в стиле Slack */}
                 <div 
                   className="absolute inset-0 z-0"
@@ -215,9 +213,9 @@ export default function Home() {
                 <Image
                   src={advantages[activeAdvantageIndex].image}
                   alt={advantages[activeAdvantageIndex].title}
-                  width={800}
-                  height={600}
-                  className="w-full h-auto transition-all duration-500 ease-out relative z-10"
+                  width={1000}
+                  height={800}
+                  className="w-3/4- h-auto transition-all duration-500 ease-out relative z-10"
                   style={{ 
                     opacity: imageOpacity,
                     transform: `translateY(${imageSlide}px)`,
@@ -225,8 +223,6 @@ export default function Home() {
                   priority
                 />
                 
-                {/* Красивая рамка с градиентом */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none z-20" />
               </div>
             </div>
           </div>
@@ -238,14 +234,14 @@ export default function Home() {
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <Reveal className="space-y-4 md:space-y-5">
                   <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">НАДЕЖНОСТЬ</div>
-                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white font-serif">Финансы и стабильность</h3>
+                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white">Финансы и стабильность</h3>
                   <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                     Финансовая стабильность — это фундамент. Мы гарантируем официальное оформление,
                     своевременные выплаты и прозрачные условия. У нас регулярно проходят пересмотры дохода —
                     стабильный доход уже в первый месяц работы.
                   </p>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl md:text-5xl font-black text-red-600">65%</span>
+                    <span className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px]">65%</span>
                     <span className="text-sm md:text-base text-slate-500">Описание</span>
                   </div>
                 </Reveal>
@@ -257,13 +253,13 @@ export default function Home() {
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <Reveal className="space-y-4 md:space-y-5">
                   <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">ФОРМАТ И СВОБОДА</div>
-                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white font-serif">Свобода выбора и комфорт</h3>
+                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white">Свобода выбора и комфорт</h3>
                   <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                     Работайте из офиса, дома или любимого кафе — мы за свободу выбора и заботимся о вашем комфорте.
                     Гибкий график и поддержка наставников помогают сочетать работу с учёбой или личными делами.
                   </p>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl md:text-5xl font-black text-red-600">100%</span>
+                    <span className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px]">100%</span>
                     <span className="text-sm md:text-base text-slate-500">Удобный формат</span>
                   </div>
                 </Reveal>
@@ -275,13 +271,13 @@ export default function Home() {
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <Reveal className="space-y-4 md:space-y-5">
                   <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">РАЗВИТИЕ И ПОДДЕРЖКА</div>
-                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white font-serif">Растите вместе с нами</h3>
+                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white">Растите вместе с нами</h3>
                   <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                     Бесплатное обучение, наставники и понятный карьерный рост. За 3 месяца можно вырасти
                     до позиции наставника, а дальше — в руководителя направления.
                   </p>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl md:text-5xl font-black text-red-600">42 500₽</span>
+                    <span className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px]">42 500₽</span>
                     <span className="text-sm md:text-base text-slate-500">Средняя зарплата по компаниям</span>
                   </div>
                 </Reveal>
@@ -293,13 +289,13 @@ export default function Home() {
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <Reveal className="space-y-4 md:space-y-5">
                   <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">ТЕХНОЛОГИИ И ПРОСТОТА</div>
-                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white font-serif">Всё понятно и удобно</h3>
+                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white">Всё понятно и удобно</h3>
                   <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                     Мы используем современные инструменты и надёжные программы. Поддержка 24/7,
                     быстрый онбординг и понятные инструкции — чтобы вы уверенно чувствовали себя в работе.
                   </p>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl md:text-5xl font-black text-red-600">5 мин</span>
+                    <span className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px]">5 мин</span>
                     <span className="text-sm md:text-base text-slate-500">Ответ поддержки</span>
                   </div>
                 </Reveal>

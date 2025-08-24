@@ -1,7 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import NeatGradientComponent from "../ui/neat-gradient";
+import NeatGradientComponent from "@/components/ui/neat-gradient";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 interface HeroSectionProps {
   title: string;
@@ -10,9 +11,9 @@ interface HeroSectionProps {
   secondaryButtonText: string;
   primaryButtonHref?: string;
   secondaryButtonHref?: string;
-  heroImage: string;
+
   mobileImage: string;
-  heroImageAlt?: string;
+
   mobileImageAlt?: string;
 }
 
@@ -23,9 +24,9 @@ export function HeroSection({
   secondaryButtonText,
   primaryButtonHref = "#",
   secondaryButtonHref = "#",
-  heroImage,
+ 
   mobileImage,
-  heroImageAlt = "Фоновое изображение",
+
   mobileImageAlt = "Мобильное изображение"
 }: HeroSectionProps) {
 	return (
@@ -40,26 +41,18 @@ export function HeroSection({
 				overlayColor="#ffffff" 
 				overlayOpacity={1} 
 			/>
-
-			
-			
-
 			{/* Дополнительные фоновые элементы */}
-			<div className="absolute inset-0 pointer-events-none">
-				<div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-white/5 rounded-full blur-3xl"></div>
-				<div className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:w-80 bg-white/5 rounded-full blur-3xl"></div>
-				<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-white/3 rounded-full blur-3xl"></div>
-			</div>
+			
 
 			{/* Контент хироблока */}
 			<div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-6 py-16 sm:py-20 md:py-24 grid gap-10 sm:gap-12 md:gap-16 lg:grid-cols-2 items-center">
 				{/* Левый блок - Текст */}
-				<div className="max-w-2xl space-y-5 sm:space-y-6 md:space-y-8 text-center lg:text-left bg-white lg:bg-transparent rounded-2xl lg:rounded-none p-6 sm:p-8 lg:p-0 shadow-xl lg:shadow-none">
-					<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0A2540] lg:text-[#0A2540]">
+				<div className=" space-y-5 sm:space-y-6 md:space-y-8 text-center lg:text-left bg-white lg:bg-transparent rounded-2xl lg:rounded-none p-6 sm:p-8 lg:p-0 shadow-xl lg:shadow-none">
+					<h1 className="text-3xl sm:text-4xl lg:text-8xl font-bold  text-[#0A2540] lg:text-[#0A2540]">
 						{title}
 					</h1>
 					
-					<p className="text-base sm:text-lg md:text-xl text-slate-700 lg:text-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+					<p className="text-base sm:text-lg md:text-xl text-[#0A2540]   max-w-2xl mx-auto lg:mx-0">
 						{description}
 					</p>
 					
@@ -89,7 +82,7 @@ export function HeroSection({
 						alt={mobileImageAlt}
 						width={160}
 						height={160}
-						className="w-full h-full max-w-58 rounded-xl sm:rounded-2xl shadow-xl"
+						className="w-full h-full max-w-lg  rounded-xl sm:rounded-2xl shadow-red-500/50 shadow-2xl"
 						priority
 					/>
 				</div>

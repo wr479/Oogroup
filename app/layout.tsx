@@ -7,7 +7,10 @@ import { Footer } from "@/components/site/footer";
 const raleway = Raleway({
   variable: "--font-raleway",
   subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  preload: true,
+  fallback: ["Arial", "Helvetica", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -22,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${raleway.variable} antialiased min-h-dvh flex flex-col`}>
+      <body className={`${raleway.variable} antialiased min-h-dvh flex flex-col font-sans`}>
         <Header />
         <div className="flex-1 flex flex-col">
           {children}

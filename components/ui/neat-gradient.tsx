@@ -3,17 +3,17 @@
 import React, { useEffect, useRef } from "react";
 import { NeatGradient } from "@firecms/neat";
 
-interface NeatGradientProps {
-  className?: string;
-  /** Включить диагональный оверлей, перекрывающий половину блока */
-  diagonalOverlay?: boolean;
-  /** Угол треугольника-оверлея: tl | tr | bl | br */
-  overlayCorner?: "tl" | "tr" | "bl" | "br";
-  /** Цвет оверлея (поддерживает rgba) */
-  overlayColor?: string;
-  /** Непрозрачность оверлея (0..1) */
-  overlayOpacity?: number;
-}
+  interface NeatGradientProps {
+    className?: string;
+    /** Включить диагональный оверлей, перекрывающий половину блока */
+    diagonalOverlay?: boolean;
+    /** Угол треугольника-оверлея: tl | tr | bl | br */
+    overlayCorner?: "tl" | "tr" | "bl" | "br";
+    /** Цвет оверлея (поддерживает rgba) */
+    overlayColor?: string;
+    /** Непрозрачность оверлея (0..1) */
+    overlayOpacity?: number;
+  }
 
 const NeatGradientComponent: React.FC<NeatGradientProps> = ({ 
   className = "",
@@ -35,7 +35,7 @@ const NeatGradientComponent: React.FC<NeatGradientProps> = ({
           enabled: true,
         },
         {
-          color: '#90E0FF',
+          color: '#F74E78',
           enabled: true,
         },
         {

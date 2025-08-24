@@ -22,10 +22,33 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-raleway), 'Raleway', Arial, Helvetica, sans-serif;
+  font-feature-settings: 'liga' 1, 'kern' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   font-family: inherit;
+}
+
+/* Улучшенные настройки для заголовков */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Улучшенные настройки для основного текста */
+p {
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* Улучшенные настройки для кнопок и ссылок */
+button, a {
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 /* Анимация переливающегося градиента для hero блока */

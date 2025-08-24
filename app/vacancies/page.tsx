@@ -16,9 +16,7 @@ export default function VacanciesPage() {
           secondaryButtonText="Посмотреть вакансии"
           primaryButtonHref="#contact-form"
           secondaryButtonHref="#vacancies"
-          heroImage="/vac/1.png"
-          mobileImage="/vac/2.png"
-          heroImageAlt="Команда профессионалов Ojok"
+          mobileImage="/hero/3.png"
           mobileImageAlt="Команда профессионалов Ojok"
         />
 
@@ -154,9 +152,7 @@ export default function VacanciesPage() {
                     Принимать входящие звонки от жителей России по готовому сценарию. 
                     Никаких продаж — только горячая входящая линия.
                   </p>
-                  <button className="text-red-600 text-sm font-medium mt-2 hover:text-red-700">
-                    Показать все
-                  </button>
+                 
                 </div>
 
                 {/* Что вы получите */}
@@ -166,9 +162,7 @@ export default function VacanciesPage() {
                     Оклад по часовой ставке от 32 000 рублей на руки плюс премии и бонусы. 
                     Грейд — повышение ставки после полугода работы и успешного экзамена.
                   </p>
-                  <button className="text-red-600 text-sm font-medium mt-2 hover:text-red-700">
-                    Показать все
-                  </button>
+                
                 </div>
 
                 {/* Что мы хотим от кандидата */}
@@ -177,9 +171,7 @@ export default function VacanciesPage() {
                   <p className="text-slate-700 text-sm leading-relaxed">
                     Готовность много общаться по телефону. Стрессоустойчивость и ответственность.
                   </p>
-                  <button className="text-red-600 text-sm font-medium mt-2 hover:text-red-700">
-                    Показать все
-                  </button>
+               
                 </div>
 
                 <Button className="w-full bg-red-600 hover:bg-red-700 text-white py-4 text-lg font-semibold rounded-xl">
@@ -188,79 +180,7 @@ export default function VacanciesPage() {
               </div>
 
               {/* Карточка вакансии 2 */}
-              <div className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Оператор на входящую линию</h3>
-                
-                {/* Детали вакансии */}
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                    </svg>
-                    <span className="text-slate-700">Формат: Удалённо</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                    </svg>
-                    <span className="text-slate-700">Зарплата: 35 000 - 40 000 ₽</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    <span className="text-slate-700">Опыт работы: Не требуется</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a4 4 0 011.5-3.5M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2m0 0V3a4 4 0 00-1.5-3.5M8 7v10a2 2 0 002 2h4a2 2 0 002-2V7" />
-                    </svg>
-                    <span className="text-slate-700">График: 5/2, 6/1, гибкий график (от 6 часов в день)</span>
-                  </div>
-                </div>
-
-                {/* Что нужно делать */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-slate-900 mb-3">Что нужно делать:</h4>
-                  <p className="text-slate-700 text-sm leading-relaxed">
-                    Принимать входящие звонки от жителей России по готовому сценарию. 
-                    Никаких продаж — только горячая входящая линия.
-                  </p>
-                  <button className="text-red-600 text-sm font-medium mt-2 hover:text-red-700">
-                    Показать все
-                  </button>
-                </div>
-
-                {/* Что вы получите */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-slate-900 mb-3">Что вы получите:</h4>
-                  <p className="text-slate-700 text-sm leading-relaxed">
-                    Оклад по часовой ставке от 32 000 рублей на руки плюс премии и бонусы. 
-                    Грейд — повышение ставки после полугода работы и успешного экзамена.
-                  </p>
-                  <button className="text-red-600 text-sm font-medium mt-2 hover:text-red-700">
-                    Показать все
-                  </button>
-                </div>
-
-                {/* Что мы хотим от кандидата */}
-                <div className="mb-8">
-                  <h4 className="font-semibold text-slate-900 mb-3">Что мы хотим от кандидата:</h4>
-                  <p className="text-slate-700 text-sm leading-relaxed">
-                    Готовность много общаться по телефону. Стрессоустойчивость и ответственность.
-                  </p>
-                  <button className="text-red-600 text-sm font-medium mt-2 hover:text-red-700">
-                    Показать все
-                  </button>
-                </div>
-
-                <Button className="w-full bg-red-600 hover:bg-red-700 text-white py-4 text-lg font-semibold rounded-xl">
-                  Откликнуться
-                </Button>
-              </div>
+             
             </div>
           </div>
         </section>
