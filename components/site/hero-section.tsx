@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import PlasmaAnimation from "../ui/gradient";
+import NeatGradientComponent from "../ui/neat-gradient";
 
 interface HeroSectionProps {
   title: string;
@@ -34,23 +34,15 @@ export function HeroSection({
 		>
 			{/* Переливающийся градиентный фон */}
 			
-			<PlasmaAnimation diagonalOverlay overlayCorner='br' overlayColor="#ffffff" overlayOpacity={1} />
+			<NeatGradientComponent 
+				diagonalOverlay 
+				overlayCorner='br' 
+				overlayColor="#ffffff" 
+				overlayOpacity={1} 
+			/>
 
-			{/* Фоновое изображение - поверх градиента */}
-			<div className="absolute inset-0 pointer-events-none">
-				<Image
-					src={heroImage}
-					alt={heroImageAlt}
-					width={650}
-					height={432}
-					className="absolute right-0 top-1/2 -translate-y-1/2 hidden md:block"
-					style={{
-						width: '40.625rem',
-						height: '27rem'
-					}}
-					priority
-				/>
-			</div>
+			
+			
 
 			{/* Дополнительные фоновые элементы */}
 			<div className="absolute inset-0 pointer-events-none">
@@ -63,7 +55,7 @@ export function HeroSection({
 			<div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-6 py-16 sm:py-20 md:py-24 grid gap-10 sm:gap-12 md:gap-16 lg:grid-cols-2 items-center">
 				{/* Левый блок - Текст */}
 				<div className="max-w-2xl space-y-5 sm:space-y-6 md:space-y-8 text-center lg:text-left bg-white lg:bg-transparent rounded-2xl lg:rounded-none p-6 sm:p-8 lg:p-0 shadow-xl lg:shadow-none">
-					<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 lg:text-white">
+					<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0A2540] lg:text-[#0A2540]">
 						{title}
 					</h1>
 					
@@ -74,7 +66,7 @@ export function HeroSection({
 					<div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start">
 						<Button 
 							size="lg" 
-							className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-4 text-base sm:text-lg font-semibold rounded-xl shadow-lg w-full sm:w-auto"
+							className="bg-red-600  hover:bg-red-700 text-white px-6 sm:px-8 py-4 text-base sm:text-lg font-semibold rounded-xl shadow-lg w-full sm:w-auto"
 							onClick={() => window.location.href = primaryButtonHref}
 						>
 							{primaryButtonText}
@@ -82,7 +74,7 @@ export function HeroSection({
 						<Button 
 							variant="outline" 
 							size="lg" 
-							className="border-2 lg:border-white/30 border-slate-900 lg:text-white text-slate-900 hover:bg-slate-900 hover:text-white lg:hover:bg-white/10 px-6 sm:px-8 py-4 text-base sm:text-lg font-semibold rounded-xl w-full sm:w-auto"
+							className="border-2 bg-[#0A2540] lg:border-white/30 border-slate-900 lg:text-white text-slate-900 hover:bg-[#0A2540] hover:text-white lg:hover:bg-[#0A2540] px-6 sm:px-8 py-4 text-base sm:text-lg font-semibold rounded-xl w-full sm:w-auto"
 							onClick={() => window.location.href = secondaryButtonHref}
 						>
 							{secondaryButtonText}
