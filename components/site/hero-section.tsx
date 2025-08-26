@@ -48,11 +48,11 @@ export function HeroSection({
 			<div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-6 py-16 sm:py-20 md:py-24 grid gap-10 sm:gap-12 md:gap-16 lg:grid-cols-2 items-center">
 				{/* Левый блок - Текст */}
 				<div className=" space-y-5 sm:space-y-6 md:space-y-8 text-center lg:text-left bg-white lg:bg-transparent rounded-2xl lg:rounded-none p-6 sm:p-8 lg:p-0 shadow-xl lg:shadow-none">
-					<h1 className="text-3xl sm:text-4xl lg:text-8xl font-bold  text-[#0A2540] lg:text-[#0A2540]">
+					<h1 className="text-3xl sm:text-4xl lg:text-8xl font-bold  text-[#0A2540] lg:text-[#0A2540] leading-1">
 						{title}
 					</h1>
 					
-					<p className="text-base sm:text-lg md:text-xl text-[#0A2540]   max-w-2xl mx-auto lg:mx-0">
+					<p className="text-base sm:text-lg md:text-xl text-[#0A2540]   max-w-2xl mx-auto lg:mx-0 bg-white p-4 rounded-xl">
 						{description}
 					</p>
 					

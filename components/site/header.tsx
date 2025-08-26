@@ -63,8 +63,8 @@ export function Header() {
     <>
       <header className={`fixed top-0 z-40 w-full transition-all duration-500 ${
         isScrolled 
-          ? 'border-b border-black/10 dark:border-white/10 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60' 
-          : 'border-b border-white/20 bg-transparent'
+                  ? 'border-b border-black/10 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60' 
+        : 'border-b border-white/20 bg-transparent'
       }`}>
         <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 h-14 sm:h-16 md:h-20 flex items-center justify-between">
           {/* Логотип и название */}
@@ -74,7 +74,7 @@ export function Header() {
             </div>
             <div className="flex flex-col">
               <span className={`font-bold text-sm sm:text-base md:text-lg transition-colors duration-500 ${
-                isScrolled ? 'text-slate-900 dark:text-white' : 'text-white'
+                isScrolled ? 'text-slate-900' : 'text-white'
               }`}>
                 <span className="hidden sm:inline">Удаленный колл-центр</span>
                 <span className="sm:hidden">Колл-центр</span>
@@ -86,7 +86,7 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm">
             <Link href="/" className={`font-medium transition-colors duration-500 ${
               isScrolled 
-                ? 'text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400' 
+                ? 'text-slate-700 hover:text-red-600' 
                 : 'text-white hover:text-red-200'
             }`}>
               Главная
@@ -94,14 +94,14 @@ export function Header() {
             
             <Link href="/about" className={`font-medium transition-colors duration-500 ${
               isScrolled 
-                ? 'text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400' 
+                ? 'text-slate-700 hover:text-red-600' 
                 : 'text-white hover:text-red-200'
             }`}>
               О компании
             </Link>
             <Link href="/vacancies" className={`font-medium transition-colors duration-500 ${
               isScrolled 
-                ? 'text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400' 
+                ? 'text-slate-700 hover:text-red-600' 
                 : 'text-white hover:text-red-200'
             }`}>
               Вакансии
@@ -113,23 +113,33 @@ export function Header() {
             {/* Контактная информация - скрыта на мобильных */}
             <div className="hidden lg:flex flex-col items-end">
               <div className={`text-lg font-bold transition-colors duration-500 ${
-                isScrolled ? 'text-slate-900 dark:text-white' : 'text-white'
+                isScrolled ? 'text-slate-900' : 'text-white'
               }`}>
                 8 800 600 34
               </div>
               <div className={`text-sm transition-colors duration-500 ${
-                isScrolled ? 'text-slate-600 dark:text-slate-400' : 'text-white/80'
+                isScrolled ? 'text-slate-600' : 'text-white/80'
               }`}>
                 Бесплатно по России
               </div>
             </div>
             
             {/* Кнопка - адаптивная */}
-            <Button className={`hidden sm:inline-flex px-4 sm:px-6 py-2 text-sm sm:text-base rounded-lg transition-all duration-500 ${
-              isScrolled 
-                ? 'bg-red-600 hover:bg-red-700 text-white' 
-                : 'bg-white text-red-600 hover:bg-white/90'
-            }`}>
+            <Button 
+              className={`hidden sm:inline-flex px-4 sm:px-6 py-2 text-sm sm:text-base rounded-lg transition-all duration-500 ${
+                isScrolled 
+                  ? 'bg-red-600 hover:bg-red-700 text-white' 
+                  : 'bg-white text-red-600 hover:bg-white/90'
+              }`}
+              onClick={() => {
+                const contactSection = document.querySelector('#contact-form');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/vacancies#contact-form';
+                }
+              }}
+            >
               <span className="hidden md:inline">Связаться с нами</span>
               <span className="md:hidden">Связаться</span>
             </Button>
@@ -176,10 +186,10 @@ export function Header() {
             id="mobile-menu-panel"
             ref={menuPanelRef}
             tabIndex={-1}
-            className="bg-white h-[100vh] ml-auto h-full w-[85%] sm:w-[80%] max-w-xs bg-white shadow-xl border-l border-black/10 dark:border-white/10 flex flex-col transition-transform duration-300 ease-out outline-none"
+            className="bg-white h-[100vh] ml-auto h-full w-[85%] sm:w-[80%] max-w-xs bg-white shadow-xl border-l border-black/10 flex flex-col transition-transform duration-300 ease-out outline-none"
             style={{ zIndex: 100000 }}
           >
-            <div className="h-14 sm:h-16 px-4 flex items-center justify-between border-b border-black/10 dark:border-white/10">
+            <div className="h-14 sm:h-16 px-4 flex items-center justify-between border-b border-black/10">
               <span className="font-semibold text-sm sm:text-base">Меню</span>
               <button
                 className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-md border border-foreground/15"
@@ -203,10 +213,21 @@ export function Header() {
                 Вакансии
               </Link>
             </nav>
-            <div className="px-4 border-t border-black/10 dark:border-white/10" style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0) + 1rem)" }}>
+            <div className="px-4 border-t border-black/10" style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0) + 1rem)" }}>
               <div className="mb-2 text-xs sm:text-sm text-foreground/70">Бесплатно по России</div>
               <div className="mb-4 text-base sm:text-lg font-bold">8 800 600 34</div>
-              <Button className="w-full bg-red-600 hover:bg-red-700 text-white rounded-lg mb-4 text-sm sm:text-base" onClick={() => setIsMenuOpen(false)}>
+              <Button 
+                className="w-full bg-red-600 hover:bg-red-700 text-white rounded-lg mb-4 text-sm sm:text-base" 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  const contactSection = document.querySelector('#contact-form');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/vacancies#contact-form';
+                  }
+                }}
+              >
                 Связаться с нами
               </Button>
             </div>

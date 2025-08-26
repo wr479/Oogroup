@@ -19,7 +19,7 @@ export default function AboutPage() {
           description="Присоединяйтесь к команде Ojok Group — лидеру в сфере удалённых контакт-центров! Мы предлагаем не просто работу, а карьеру с ежедневной поддержкой, бесплатным обучением и гарантированным доходом до 40 000₽ уже в первый месяц. Забудьте о часах в пробках — ваше рабочее место там, где есть интернет."
           primaryButtonText="Оставить заявку"
           secondaryButtonText="Посмотреть вакансии"
-          primaryButtonHref="#contact"
+          primaryButtonHref="/vacancies#contact-form"
           secondaryButtonHref="/vacancies"
           mobileImage="/hero/2.png"
           mobileImageAlt="Мобильное приложение"
@@ -63,15 +63,15 @@ export default function AboutPage() {
               </div>
 
               {/* Центральная колонка - Статистика */}
-              <div className=" text-left flex flex-col justify-between h-full">
-                <div className="space-y-4 bg-[#0A2540] p-6 rounded-lg">
+              <div className=" text-left flex flex-col justify-between h-full gap-4">
+                <div className="space-y-4 bg-[#0A2540] p-6 rounded-lg h-full">
                   <div className="text-4xl font-bold text-white mb-0">1000</div>
                   <p className="text-sm text-white max-w-xs mx-auto">
                     Более 1000 успешно реализованных проектов
                   </p>
                 </div>
                 
-                <div className="space-y-4 bg-white p-6 rounded-lg">
+                <div className="space-y-4 bg-white p-6 rounded-lg h-full">
                   <div className="text-4xl font-bold text-[#0A2540] mb-0">20%</div>
                   <p className="text-sm text-[#0A2540] max-w-xs mx-auto">
                   Снижение затрат на продажи на 20% благодаря собственной IT-платформе
@@ -96,9 +96,9 @@ export default function AboutPage() {
           <h2 className="text-4xl font-bold text-slate-900 mb-8 text-center">Наша история</h2>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-stretch">
                              {/* Левая колонка - Изображение */}
-               <div className="relative">
+               <div className="relative h-full">
                  <Image
                    src={[
                      "/hero-main.png",      // 2012
@@ -110,7 +110,7 @@ export default function AboutPage() {
                    alt="История компании Ojok"
                    width={600}
                    height={400}
-                   className="w-full h-auto rounded-2xl shadow-2xl transition-all duration-500 ease-out"
+                   className="w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-500 ease-out"
                  />
                </div>
 
@@ -188,11 +188,11 @@ export default function AboutPage() {
                 <h2 className="text-4xl font-bold text-slate-900 mb-8">Наша миссия</h2>
                 
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                <b>Миссия компании Ojok заключается в создании и развитии высокоэффективных боевых команд продаж, которые выходят за рамки традиционного понятия холодных звонков.</b> Ojok стремится не просто обеспечить контакт с потенциальными клиентами, а выстраивать полноценные и систематизированные процессы, направленные на достижение конкретных бизнес-целей заказчиков. Компания создает индивидуальные сценарии продаж и использует методологии, адаптированные под особенности каждого клиента, что позволяет максимально эффективно вести клиентов по всем этапам воронки продаж — от первого контакта до заключения сделки и получения оплаты.
+                <b>Миссия Ojok — создание высокоэффективных команд продаж, выходящих за рамки простых холодных звонков.</b> Мы выстраиваем систематизированные процессы для достижения конкретных бизнес-целей клиентов, создавая индивидуальные сценарии продаж и адаптируя методологии под особенности каждого рынка.
                 </p>
                 
                 <p className="text-lg text-slate-700 leading-relaxed">
-                В основе миссии лежит принцип честности и личной ответственности. Руководители и сотрудники Ojok не обещают невозможного, а строят работу на основе прозрачной коммуникации и реальных данных. Компания не использует шаблонные решения, предпочитая индивидуальный подход и глубокое понимание особенностей каждого рынка и продукта. Такой подход позволяет работать не просто как обычный колл-центр, а как партнер, который входит в бизнес-процессы клиента и помогает достигать устойчивых результатов.
+                В основе нашей работы — честность и личная ответственность. Мы не обещаем невозможного, а строим партнерские отношения, входя в бизнес-процессы клиента и помогая достигать устойчивых результатов.
                 </p>
               </div>
 
@@ -348,10 +348,6 @@ export default function AboutPage() {
                      </>
                    )}
                  </div>
-                 
-                 <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold rounded-xl">
-                   Узнать больше
-                 </Button>
                </div>
              </div>
            </div>

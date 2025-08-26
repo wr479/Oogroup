@@ -65,7 +65,7 @@ export function StickyAdvantageImage({
           top: '8rem'
         }}
       >
-        <div className="relative bg-white dark:bg-slate-900 rounded-xl shadow-xl overflow-hidden border border-black/5">
+        <div className="relative bg-white rounded-xl shadow-xl overflow-hidden border border-black/5">
           <Image
             src={advantages[activeAdvantageIndex].image}
             alt={advantages[activeAdvantageIndex].title}

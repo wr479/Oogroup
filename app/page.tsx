@@ -9,7 +9,7 @@ import { Shield, Zap, Users, Settings } from "lucide-react";
 export default function Home() {
   const [activeAdvantageIndex, setActiveAdvantageIndex] = useState(0);
   const [imageOpacity, setImageOpacity] = useState(1);
-  const [imageSlide, setImageSlide] = useState(0);
+  const [textOpacity, setTextOpacity] = useState(1);
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Массив преимуществ с изображениями и цветами для фоновых иллюстраций
@@ -47,7 +47,6 @@ export default function Home() {
     
     // Убеждаемся, что первое изображение отображается без анимации
     setImageOpacity(1);
-    setImageSlide(0);
   }, []);
 
   useEffect(() => {
@@ -88,17 +87,16 @@ export default function Home() {
       
       // Проверяем, что индекс действительно изменился и валиден
       if (currentIndex !== activeAdvantageIndex && currentIndex >= 0 && currentIndex < advantages.length) {
-        // Slide анимация смены изображения
+        // Простая анимация смены изображения через opacity
         setImageOpacity(0);
-        setImageSlide(-50); // Сдвигаем влево
+        setTextOpacity(0.7);
         
         setTimeout(() => {
           setActiveAdvantageIndex(currentIndex);
-          setImageSlide(50); // Новое изображение появляется справа
           
           setTimeout(() => {
             setImageOpacity(1);
-            setImageSlide(0); // Возвращаем в центр
+            setTextOpacity(1);
           }, 100);
         }, 200);
       }
@@ -128,7 +126,7 @@ export default function Home() {
           description="Присоединяйтесь к команде Ojok Group — лидеру в сфере удалённых контакт-центров! Мы предлагаем не просто работу, а карьеру с ежедневной поддержкой, бесплатным обучением и гарантированным доходом до 40 000₽ уже в первый месяц. Забудьте о часах в пробках — ваше рабочее место там, где есть интернет."
           primaryButtonText="Оставить заявку"
           secondaryButtonText="Посмотреть вакансии"
-          primaryButtonHref="#contact"
+          primaryButtonHref="/vacancies#contact-form"
           secondaryButtonHref="/vacancies"
           mobileImage="/hero/1.png"
           mobileImageAlt="Мобильное приложение"
@@ -157,24 +155,24 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-left">
               <Reveal>
-                <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight text-slate-900 dark:text-white mb-10">Преимущества работы с нами</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold leading-tight text-slate-900 mb-10">Преимущества работы с нами</h2>
               </Reveal>
               <div className="flex justify-start items-center gap-6 md:gap-8 flex-wrap">
                 <div className="flex items-center gap-3">
                   <Shield className="w-5 h-5 text-slate-400" />
-                  <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">НАДЕЖНОСТЬ</span>
+                  <span className="text-sm md:text-base font-semibold uppercase text-slate-900">НАДЕЖНОСТЬ</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Zap className="w-5 h-5 text-slate-400" />
-                  <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">ФОРМАТ И СВОБОДА</span>
+                  <span className="text-sm md:text-base font-semibold uppercase text-slate-900">ФОРМАТ И СВОБОДА</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Users className="w-5 h-5 text-slate-400" />
-                  <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">РАЗВИТИЕ И ПОДДЕРЖКА</span>
+                  <span className="text-sm md:text-base font-semibold uppercase text-slate-900">РАЗВИТИЕ И ПОДДЕРЖКА</span>
                 </div>  
                 <div className="flex items-center gap-3">
                   <Settings className="w-5 h-5 text-slate-400" />
-                  <span className="text-sm md:text-base font-semibold uppercase text-slate-900 dark:text-white">ТЕХНОЛОГИИ И ПРОСТОТА</span>
+                  <span className="text-sm md:text-base font-semibold uppercase text-slate-900">ТЕХНОЛОГИИ И ПРОСТОТА</span>
                 </div>
               </div>
             </div>
@@ -183,13 +181,15 @@ export default function Home() {
 
         {/* Секция преимуществ с sticky изображением */}
         <div className="relative flex flex-row-reverse min-h-screen mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" style={{ '--sticky-top': '8rem' } as React.CSSProperties}>
+          
+
           {/* Sticky изображение справа */}
           <div className="lg:block hidden relative lg:right-0 lg:top-0 lg:w-1/2 lg:pl-8">
             <div 
               className="sticky w-full   flex items-center justify-center"
               style={{ 
                 position: 'sticky',
-                top: 'var(--sticky-top)',
+                top: '50% ',
                 height: 'fit-content',
                 zIndex: 10
               }}
@@ -206,7 +206,9 @@ export default function Home() {
                     `,
                     filter: 'blur(30px)',
                     borderRadius: '60% 40% 50% 50% / 60% 50% 40% 50%',
-                    transform: 'rotate(-8deg) translateY(10px)'
+                    transform: 'rotate(-8deg) translateY(10px)',
+                    transition: 'all 0.5s ease-out',
+                    opacity: imageOpacity * 0.6
                   }}
                 />
                 
@@ -218,7 +220,6 @@ export default function Home() {
                   className="w-3/4- h-auto transition-all duration-500 ease-out relative z-10"
                   style={{ 
                     opacity: imageOpacity,
-                    transform: `translateY(${imageSlide}px)`,
                   }}
                   priority
                 />
@@ -233,15 +234,43 @@ export default function Home() {
             <section data-advantage-section="reliability" className="relative py-12 md:py-16">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <Reveal className="space-y-4 md:space-y-5">
-                  <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">НАДЕЖНОСТЬ</div>
-                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white">Финансы и стабильность</h3>
-                  <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                  <div 
+                    className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500 transition-all duration-500"
+                    style={{ 
+                      opacity: activeAdvantageIndex === 0 ? 1 : 0.7,
+                      transform: activeAdvantageIndex === 0 ? 'scale(1.05)' : 'scale(1)',
+                      color: activeAdvantageIndex === 0 ? '#EF4444' : '#6B7280'
+                    }}
+                  >
+                    НАДЕЖНОСТЬ
+                  </div>
+                  <h3 
+                    className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 transition-all duration-500"
+                    style={{ 
+                      opacity: textOpacity,
+                      transform: activeAdvantageIndex === 0 ? 'translateX(10px)' : 'translateX(0)'
+                    }}
+                  >
+                    Финансы и стабильность
+                  </h3>
+                  <p 
+                    className="text-[15px] md:text-lg text-slate-700 leading-relaxed font-medium transition-all duration-500"
+                    style={{ opacity: textOpacity }}
+                  >
                     Финансовая стабильность — это фундамент. Мы гарантируем официальное оформление,
                     своевременные выплаты и прозрачные условия. У нас регулярно проходят пересмотры дохода —
                     стабильный доход уже в первый месяц работы.
                   </p>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px]">65%</span>
+                    <span 
+                      className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px] transition-all duration-500"
+                      style={{ 
+                        opacity: textOpacity,
+                        transform: activeAdvantageIndex === 0 ? 'scale(1.1)' : 'scale(1)'
+                      }}
+                    >
+                      65%
+                    </span>
                     <span className="text-sm md:text-base text-slate-500">Описание</span>
                   </div>
                 </Reveal>
@@ -250,16 +279,44 @@ export default function Home() {
 
             {/* Преимущества – 2 */}
             <section data-advantage-section="freedom" className="relative py-12 md:py-16">
-              <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+              <div className="mx-auto max-w-4xl ">
                 <Reveal className="space-y-4 md:space-y-5">
-                  <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">ФОРМАТ И СВОБОДА</div>
-                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white">Свобода выбора и комфорт</h3>
-                  <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                  <div 
+                    className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500 transition-all duration-500"
+                    style={{ 
+                      opacity: activeAdvantageIndex === 1 ? 1 : 0.7,
+                      transform: activeAdvantageIndex === 1 ? 'scale(1.05)' : 'scale(1)',
+                      color: activeAdvantageIndex === 1 ? '#EF4444' : '#6B7280'
+                    }}
+                  >
+                    ФОРМАТ И СВОБОДА
+                  </div>
+                  <h3 
+                    className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 transition-all duration-500"
+                    style={{ 
+                      opacity: textOpacity,
+                      transform: activeAdvantageIndex === 1 ? 'translateX(10px)' : 'translateX(0)'
+                    }}
+                  >
+                    Свобода выбора и комфорт
+                  </h3>
+                  <p 
+                    className="text-[15px] md:text-lg text-slate-700 leading-relaxed font-medium transition-all duration-500"
+                    style={{ opacity: textOpacity }}
+                  >
                     Работайте из офиса, дома или любимого кафе — мы за свободу выбора и заботимся о вашем комфорте.
                     Гибкий график и поддержка наставников помогают сочетать работу с учёбой или личными делами.
                   </p>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px]">100%</span>
+                    <span 
+                      className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px] transition-all duration-500"
+                      style={{ 
+                        opacity: textOpacity,
+                        transform: activeAdvantageIndex === 1 ? 'scale(1.1)' : 'scale(1)'
+                      }}
+                    >
+                      100%
+                    </span>
                     <span className="text-sm md:text-base text-slate-500">Удобный формат</span>
                   </div>
                 </Reveal>
@@ -270,14 +327,42 @@ export default function Home() {
             <section data-advantage-section="development" className="relative py-12 md:py-16">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <Reveal className="space-y-4 md:space-y-5">
-                  <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">РАЗВИТИЕ И ПОДДЕРЖКА</div>
-                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white">Растите вместе с нами</h3>
-                  <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                  <div 
+                    className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500 transition-all duration-500"
+                    style={{ 
+                      opacity: activeAdvantageIndex === 2 ? 1 : 0.7,
+                      transform: activeAdvantageIndex === 2 ? 'scale(1.05)' : 'scale(1)',
+                      color: activeAdvantageIndex === 2 ? '#EF4444' : '#6B7280'
+                    }}
+                  >
+                    РАЗВИТИЕ И ПОДДЕРЖКА
+                  </div>
+                  <h3 
+                    className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 transition-all duration-500"
+                    style={{ 
+                      opacity: textOpacity,
+                      transform: activeAdvantageIndex === 2 ? 'translateX(10px)' : 'translateX(0)'
+                    }}
+                  >
+                    Растите вместе с нами
+                  </h3>
+                  <p 
+                    className="text-[15px] md:text-lg text-slate-700 leading-relaxed font-medium transition-all duration-500"
+                    style={{ opacity: textOpacity }}
+                  >
                     Бесплатное обучение, наставники и понятный карьерный рост. За 3 месяца можно вырасти
                     до позиции наставника, а дальше — в руководителя направления.
                   </p>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px]">42 500₽</span>
+                    <span 
+                      className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px] transition-all duration-500"
+                      style={{ 
+                        opacity: textOpacity,
+                        transform: activeAdvantageIndex === 2 ? 'scale(1.1)' : 'scale(1)'
+                      }}
+                    >
+                      42 500₽
+                    </span>
                     <span className="text-sm md:text-base text-slate-500">Средняя зарплата по компаниям</span>
                   </div>
                 </Reveal>
@@ -288,14 +373,42 @@ export default function Home() {
             <section data-advantage-section="technology" className="relative py-12 md:py-16">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <Reveal className="space-y-4 md:space-y-5">
-                  <div className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500">ТЕХНОЛОГИИ И ПРОСТОТА</div>
-                  <h3 className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 dark:text-white">Всё понятно и удобно</h3>
-                  <p className="text-[15px] md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                  <div 
+                    className="text-[12px] md:text-sm font-semibold tracking-[.15em] uppercase text-slate-500 transition-all duration-500"
+                    style={{ 
+                      opacity: activeAdvantageIndex === 3 ? 1 : 0.7,
+                      transform: activeAdvantageIndex === 3 ? 'scale(1.05)' : 'scale(1)',
+                      color: activeAdvantageIndex === 3 ? '#EF4444' : '#6B7280'
+                    }}
+                  >
+                    ТЕХНОЛОГИИ И ПРОСТОТА
+                  </div>
+                  <h3 
+                    className="text-[24px] sm:text-2xl md:text-[30px] font-bold leading-snug text-slate-900 transition-all duration-500"
+                    style={{ 
+                      opacity: textOpacity,
+                      transform: activeAdvantageIndex === 3 ? 'translateX(10px)' : 'translateX(0)'
+                    }}
+                  >
+                    Всё понятно и удобно
+                  </h3>
+                  <p 
+                    className="text-[15px] md:text-lg text-slate-700 leading-relaxed font-medium transition-all duration-500"
+                    style={{ opacity: textOpacity }}
+                  >
                     Мы используем современные инструменты и надёжные программы. Поддержка 24/7,
                     быстрый онбординг и понятные инструкции — чтобы вы уверенно чувствовали себя в работе.
                   </p>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px]">5 мин</span>
+                    <span 
+                      className="text-4xl md:text-5xl font-black text-red-600 min-w-[120px] transition-all duration-500"
+                      style={{ 
+                        opacity: textOpacity,
+                        transform: activeAdvantageIndex === 3 ? 'scale(1.1)' : 'scale(1)'
+                      }}
+                    >
+                      5 мин
+                    </span>
                     <span className="text-sm md:text-base text-slate-500">Ответ поддержки</span>
                   </div>
                 </Reveal>
@@ -305,12 +418,12 @@ export default function Home() {
         </div>
 
         {/* Финальный блок CTA */}
-        <section id="contacts" className="border-t border-black/10 dark:border-white/10 bg-[rgba(10, 37, 64, 0.05)] w-full">
+        <section id="contacts" className="border-t border-black/10 bg-[rgba(10, 37, 64, 0.05)] w-full">
           <div className="mx-auto max-w-6xl px-4 md:px-6 py-14 md:py-20">
-            <Reveal className="rounded-2xl border-2 border-blue-200/60 dark:border-white/10 bg-white dark:bg-slate-900 p-6 sm:p-8 md:p-10 shadow-sm">
+                          <Reveal className="rounded-2xl border-2 border-blue-200/60 bg-white p-6 sm:p-8 md:p-10 shadow-sm">
               <div className="max-w-4xl mx-auto text-center mb-8 md:mb-10">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Хотите с нами работать?</h2>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   Ojok Group — это больше чем работа. Это сообщество профессионалов, где ценят ваше время, комфорт и стремление к росту.
                   Мы создали среду, где удалённая работа становится преимуществом, а не ограничением. Присоединяйтесь к нам и убедитесь сами!
                 </p>
@@ -318,44 +431,48 @@ export default function Home() {
 
               <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-8 md:mb-10">
                 <div>
-                  <div className="text-center md:text-left text-xs font-semibold tracking-wider uppercase text-slate-700 dark:text-slate-200 mb-3">МЫ ПРЕДЛАГАЕМ</div>
+                  <div className="text-center md:text-left text-xs font-semibold tracking-wider uppercase text-slate-700 mb-3">МЫ ПРЕДЛАГАЕМ</div>
                   <ul className="space-y-3 md:space-y-4">
                     <li className="flex items-start gap-3">
                       <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
-                      <span className="text-slate-800 dark:text-slate-200">ОФИЦИАЛЬНОЕ ТРУДОУСТРОЙСТВО С ПЕРВОГО ДНЯ</span>
+                      <span className="text-slate-800">ОФИЦИАЛЬНОЕ ТРУДОУСТРОЙСТВО С ПЕРВОГО ДНЯ</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
-                      <span className="text-slate-800 dark:text-slate-200">100% УДАЛЁННЫЙ ФОРМАТ ИЗ ЛЮБОГО ГОРОДА РОССИИ</span>
+                      <span className="text-slate-800">100% УДАЛЁННЫЙ ФОРМАТ ИЗ ЛЮБОГО ГОРОДА РОССИИ</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
-                      <span className="text-slate-800 dark:text-slate-200">ЗАРПЛАТА 35 000 — 40 000₽ С ПЕРЕСМОТРОМ КАЖДЫЕ 3 МЕСЯЦА</span>
+                      <span className="text-slate-800">ЗАРПЛАТА 35 000 — 40 000₽ С ПЕРЕСМОТРОМ КАЖДЫЕ 3 МЕСЯЦА</span>
                     </li>
                   </ul>
                 </div>
 
                 <div>
-                  <div className="text-center md:text-left text-xs font-semibold tracking-wider uppercase text-slate-700 dark:text-slate-200 mb-3">КОГО МЫ ИЩЕМ</div>
+                  <div className="text-center md:text-left text-xs font-semibold tracking-wider uppercase text-slate-700 mb-3">КОГО МЫ ИЩЕМ</div>
                   <ul className="space-y-3 md:space-y-4">
                     <li className="flex items-start gap-3">
                       <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
-                      <span className="text-slate-800 dark:text-slate-200">ОПЫТ В СЕРВИСЕ ИЛИ ПРОДАЖАХ</span>
+                      <span className="text-slate-800">ОПЫТ В СЕРВИСЕ ИЛИ ПРОДАЖАХ</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
-                      <span className="text-slate-800 dark:text-slate-200">ГОТОВНОСТЬ ПОМОГАТЬ ЛЮДЯМ И РЕШАТЬ ИХ ЗАДАЧИ</span>
+                      <span className="text-slate-800">ГОТОВНОСТЬ ПОМОГАТЬ ЛЮДЯМ И РЕШАТЬ ИХ ЗАДАЧИ</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="mt-2 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
-                      <span className="text-slate-800 dark:text-slate-200">КОМАНДНЫХ ИГРОКОВ С АКТИВНОЙ ЖИЗНЕННОЙ ПОЗИЦИЕЙ</span>
+                      <span className="text-slate-800">КОМАНДНЫХ ИГРОКОВ С АКТИВНОЙ ЖИЗНЕННОЙ ПОЗИЦИЕЙ</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="flex justify-center">
-                <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl">
+                <Button 
+                  size="lg" 
+                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl"
+                  onClick={() => window.location.href = '/vacancies'}
+                >
                   Посмотреть вакансии
                 </Button>
               </div>
