@@ -123,7 +123,7 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection 
           title="Ваша новая работа ждет здесь"
-          description="Присоединяйтесь к команде Ojok Group — лидеру в сфере удалённых контакт-центров! Мы предлагаем не просто работу, а карьеру с ежедневной поддержкой, бесплатным обучением и гарантированным доходом до 40 000₽ уже в первый месяц. Забудьте о часах в пробках — ваше рабочее место там, где есть интернет."
+          description="Присоединяйтесь к команде Ojok Group — лидеру в сфере удалённых контакт-центров! Мы предлагаем не просто работу, а карьеру с ежедневной поддержкой, бесплатным обучением и гарантированным доходом от 35 000₽ уже в первый месяц. Забудьте о часах в пробках — ваше рабочее место там, где есть интернет."
           primaryButtonText="Оставить заявку"
           secondaryButtonText="Посмотреть вакансии"
           primaryButtonHref="/vacancies#contact-form"
@@ -133,22 +133,7 @@ export default function Home() {
         />
         
         {/* Полоса логотипов партнёров */}
-        <section className="py-10 md:py-12">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <Reveal>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-10 items-center opacity-80 grayscale">
-                <Image src="/company/1.png" alt="Лого" width={120} height={40} className="mx-auto h-full w-auto" />
-                <Image src="/company/2.png" alt="Лого" width={120} height={40} className="mx-auto h-full w-auto" />
-                <Image src="/company/3.png" alt="Лого" width={120} height={40} className="mx-auto h-full w-auto" />
-                <Image src="/company/3.png" alt="Лого" width={120} height={40} className="mx-auto h-full w-auto" />
-                <Image src="/company/1.png" alt="Лого" width={120} height={40} className="mx-auto h-full w-auto" />
-                <Image src="/company/2.png" alt="Лого" width={120} height={40} className="mx-auto h-full w-auto" />
-                <Image src="/company/3.png" alt="Лого" width={120} height={40} className="mx-auto h-full w-auto" />
-                <Image src="/company/3.png" alt="Лого" width={120} height={40} className="mx-auto h-full w-auto" />
-              </div>
-            </Reveal>
-          </div>
-        </section>
+       
 
         {/* Заголовок блока преимуществ */}
         <section className="py-12 md:py-16">
@@ -178,7 +163,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+    
         {/* Секция преимуществ с sticky изображением */}
         <div className="relative flex flex-row-reverse min-h-screen mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" style={{ '--sticky-top': '8rem' } as React.CSSProperties}>
           
@@ -417,6 +402,28 @@ export default function Home() {
           </div>
         </div>
 
+        <section className="py-10 md:py-12">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <Reveal>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-10 items-center  ">
+                <Image src="/comp/logo-1.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/logo-2.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/logo-3.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/logo-4.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/logo-5.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/logo-7.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/logo-8.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/sinto.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/rusnarbank.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/logo_kosta.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/skilline_logo_white.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+                <Image src="/comp/log-6.png" alt="Лого" width={130} height={50} className="mx-auto h-full w-auto" />
+              </div>
+            </Reveal>
+            <p className="text-center mt-6 text-2xl text-bold text-black ">... и ещё 1009 проектов</p>
+          </div>
+        </section>
+        
         {/* Финальный блок CTA */}
         <section id="contacts" className="border-t border-black/10 bg-[rgba(10, 37, 64, 0.05)] w-full">
           <div className="mx-auto max-w-6xl px-4 md:px-6 py-14 md:py-20">

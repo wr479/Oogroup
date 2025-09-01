@@ -6,32 +6,10 @@ import { usePathname } from "next/navigation";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const menuPanelRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
 
-  // Отслеживание прокрутки для трансформации header
-  useEffect(() => {
-    const handleScroll = () => {
-      // Не обновляем состояние при открытом мобильном меню
-      if (isMenuOpen) return;
-      
-      const heroSection = document.querySelector('section');
-      if (heroSection) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        const scrollPosition = window.scrollY + window.innerHeight;
-        
-        if (scrollPosition > heroBottom) {
-          setIsScrolled(true);
-        } else {
-          setIsScrolled(false);
-        }
-      }
-    };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMenuOpen]);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -61,11 +39,7 @@ export function Header() {
 
   return (
     <>
-      <header className={`fixed top-0 z-40 w-full transition-all duration-500 ${
-        isScrolled 
-                  ? 'border-b border-black/10 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60' 
-        : 'border-b border-white/20 bg-transparent'
-      }`}>
+      <header className="fixed top-0 z-40 w-full transition-all duration-500 border-b border-black/10 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 h-14 sm:h-16 md:h-20 flex items-center justify-between">
           {/* Логотип и название */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3">
@@ -73,9 +47,7 @@ export function Header() {
               <span className="text-white font-bold text-base sm:text-lg">Ojok</span>
             </div>
             <div className="flex flex-col">
-              <span className={`font-bold text-sm sm:text-base md:text-lg transition-colors duration-500 ${
-                isScrolled ? 'text-slate-900' : 'text-white'
-              }`}>
+              <span className="font-bold text-sm sm:text-base md:text-lg transition-colors duration-500 text-slate-900">
                 <span className="hidden sm:inline">Удаленный колл-центр</span>
                 <span className="sm:hidden">Колл-центр</span>
               </span>
@@ -84,26 +56,14 @@ export function Header() {
 
           {/* Навигация */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm">
-            <Link href="/" className={`font-medium transition-colors duration-500 ${
-              isScrolled 
-                ? 'text-slate-700 hover:text-red-600' 
-                : 'text-white hover:text-red-200'
-            }`}>
+            <Link href="/" className="font-medium transition-colors duration-500 text-slate-700 hover:text-red-600">
               Главная
             </Link>
             
-            <Link href="/about" className={`font-medium transition-colors duration-500 ${
-              isScrolled 
-                ? 'text-slate-700 hover:text-red-600' 
-                : 'text-white hover:text-red-200'
-            }`}>
-              О компании
+            <Link href="/about" className="font-medium transition-colors duration-500 text-slate-700 hover:text-red-600">
+              Услуги
             </Link>
-            <Link href="/vacancies" className={`font-medium transition-colors duration-500 ${
-              isScrolled 
-                ? 'text-slate-700 hover:text-red-600' 
-                : 'text-white hover:text-red-200'
-            }`}>
+            <Link href="/vacancies" className="font-medium transition-colors duration-500 text-slate-700 hover:text-red-600">
               Вакансии
             </Link>
           </nav>
@@ -112,25 +72,17 @@ export function Header() {
           <div className="flex items-center gap-2 sm:gap-3 md:gap-6">
             {/* Контактная информация - скрыта на мобильных */}
             <div className="hidden lg:flex flex-col items-end">
-              <div className={`text-lg font-bold transition-colors duration-500 ${
-                isScrolled ? 'text-slate-900' : 'text-white'
-              }`}>
+              <div className="text-lg font-bold transition-colors duration-500 text-slate-900">
                 8 800 600 34
               </div>
-              <div className={`text-sm transition-colors duration-500 ${
-                isScrolled ? 'text-slate-600' : 'text-white/80'
-              }`}>
+              <div className="text-sm transition-colors duration-500 text-slate-600">
                 Бесплатно по России
               </div>
             </div>
             
             {/* Кнопка - адаптивная */}
             <Button 
-              className={`hidden sm:inline-flex px-4 sm:px-6 py-2 text-sm sm:text-base rounded-lg transition-all duration-500 ${
-                isScrolled 
-                  ? 'bg-red-600 hover:bg-red-700 text-white' 
-                  : 'bg-white text-red-600 hover:bg-white/90'
-              }`}
+              className="hidden sm:inline-flex px-4 sm:px-6 py-2 text-sm sm:text-base rounded-lg transition-all duration-500 bg-red-600 hover:bg-red-700 text-white"
               onClick={() => {
                 const contactSection = document.querySelector('#contact-form');
                 if (contactSection) {
@@ -146,19 +98,13 @@ export function Header() {
             
             {/* Кнопка бургера для мобильных */}
             <button
-              className={`md:hidden inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-md border transition-colors duration-500 ${
-                isScrolled 
-                  ? 'border-foreground/15' 
-                  : 'border-white/30'
-              }`}
+              className="md:hidden inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-md border transition-colors duration-500 border-foreground/15"
               aria-label="Открыть меню"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu-panel"
               onClick={() => setIsMenuOpen(true)}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-colors duration-500 ${
-                isScrolled ? 'text-slate-700' : 'text-white'
-              }`}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-colors duration-500 text-slate-700">
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <line x1="3" y1="12" x2="21" y2="12" />
                 <line x1="3" y1="18" x2="21" y2="18" />
